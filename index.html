@@ -1,19 +1,20 @@
 <!doctype html>
-
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>SpaceX Launch Timeline</title>
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-<body>
-  <nav id="header">
-    <h1>All SpaceX Launches</h1>
-    <h2>There were designed to reach orbit</h2>
-  </nav>
+    <title>SpaceX Launch Timeline</title>
+    <meta name="description" content="SpaceX Launch Timeline">
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="js/app.js"></script>
-</body>
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="/manifest.json">
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="/src/launch-timeline-app/launch-timeline-app.html">
+  </head>
+  <body>
+    <launch-timeline-app></launch-timeline-app>
+  </body>
 </html>
