@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="launch-timeline-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class LaunchTimelineApp extends Polymer.Element {
+      static get is() { return 'launch-timeline-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'launch-timeline-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(LaunchTimelineApp.is, LaunchTimelineApp);
+  </script>
+</dom-module>

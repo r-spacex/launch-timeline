@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+//Fonts
+$openSans: 'Open Sans', sans-serif;
+
+//Colors
+$light-gray: #ccc;
+$spacex-blue: #3569a4;
+
+*{
+  font-family: $openSans;
+  font-size: 10px;
+}
