@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="spacex-launch">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+      }
+    </style>
+    <span>SpaceX Launch: [[launchNumber]]</span>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+     class SpaceXLaunch extends Polymer.Element {
+       static get is() { return 'spacex-launch'; }
+       static get properties() {
+         return {
+           launchNumber: {
+             type: Number,
+             value: 1
+           }
+         };
+       }
+     }
+
+     window.customElements.define(SpaceXLaunch.is, SpaceXLaunch);
+  </script>
+</dom-module>
