@@ -1,4 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../../bower_components/polymer/lib/elements/dom-if.html">
+<link rel="import" href="../payload-dragon/payload-dragon.html">
+<link rel="import" href="../payload-fairing/payload-fairing.html">
 
 <dom-module id="launch-vehicle">
   <template>
@@ -11,6 +14,12 @@
     <p id="rocketId">Rocket ID: <code>[[vehicleData.rocket_id]]</code></p>
     <p id="rocketName">Rocket Name: [[vehicleData.rocket_name]]</p>
     <p id="rocketType">Rocket Type: [[vehicleData.rocket_type]]</p>
+    <template is="dom-if" if="[[isDragon]]">
+      <payload-dragon></payload-dragon>
+    </template>
+    <template is="dom-if" if="[[_satellite()]]">
+      <payload-fairing></payload-fairing>
+    </template>
   </template>
 
   <script>
@@ -27,14 +36,27 @@
              reflectToAttribute: true,
              value: { rocket_id: 'unknown', rocket_name: 'Unknown Rocket', rocket_type: 'Unknown Type'}
            },
-           payloadId: {
-             type: String
+           payloadType: {
+             type: String,
+             reflectToAttribute: true
+           },
+           isDragon: {
+             type: Boolean,
+             computed: '_isPayloadDragon(payloadType)'
            }
          };
        }
 
        vehicleDataString(data) {
          return JSON.stringify(data);
+       }
+
+       _isPayloadDragon(_payloadType) {
+         return _payloadType.toLowerCase().includes('dragon');
+       }
+
+       _satellite() {
+         return !this.isDragon && (this.vehicleData.rocket_id != 'falcon1');
        }
      }
 

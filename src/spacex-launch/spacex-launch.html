@@ -21,9 +21,11 @@
 
     <h2>SpaceX Launch: [[launchData.flight_number]]</h2>
     <p id="mission"></p>
-    <time id="launchDatetime"></time>
+    <time id="launchDatetime" datetime="[[launchData.launch_date_local]]"
+        title="[[launchData.launch_date_local]]"></time>
     <p id="launchSite"></p>
-    <launch-vehicle></launch-vehicle>
+    <launch-vehicle payload-type="[[launchData.payloads.0.payload_type]]"
+                    vehicle-data="[[launchData.rocket]]"></launch-vehicle>
 
   </template>
 
@@ -71,10 +73,7 @@
          `${payload.payload_id} (${payload.customers.join('/')})`;
 
          let datetime = dom.querySelector('#launchDatetime');
-         datetime.setAttribute('datetime', data.launch_date_local);
          datetime.textContent = new Date(data.launch_date_local);
-         datetime.title = datetime.getAttribute('datetime');
-         dom.querySelector('launch-vehicle').vehicleData = data.rocket;
        }
      }
 
