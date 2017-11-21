@@ -1,4 +1,6 @@
+<link rel="import" href="https://polygit.org/polymer+v2.0.0/shadycss+webcomponents+1.0.0/components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="../spacex-launch/spacex-launch.html">
 
 <dom-module id="launch-timeline-app">
@@ -8,8 +10,21 @@
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
-    <spacex-launch></spacex-launch>
+    <link rel="stylesheet" href="./css/styles.css">
+        
+    <iron-ajax
+        auto
+        url="https://api.spacexdata.com/v1/launches"
+        handle-as="json"
+        last-response="{{launches}}"
+        >
+    </iron-ajax>
+    
+    <h2>Hello!</h2>
+    <template is="dom-repeat" items="[[launches]]">
+      <spacex-launch></spacex-launch>
+    </template>
+
   </template>
 
   <script>
@@ -21,11 +36,15 @@
       static get is() { return 'launch-timeline-app'; }
       static get properties() {
         return {
-          prop1: {
-            type: String,
-            value: 'launch-timeline-app'
+          launches: {
+            type: Array
           }
         };
+      }
+
+      json(obj) {
+        console.log("here");
+        return JSON.stringify(obj, null, 2);
       }
     }
 

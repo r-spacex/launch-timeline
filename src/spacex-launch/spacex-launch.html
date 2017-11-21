@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../launch-vehicle/launch-vehicle.html">
 
 <dom-module id="spacex-launch">
   <template>
@@ -8,6 +9,9 @@
       }
     </style>
     <span>SpaceX Launch: [[launchNumber]]</span>
+    <launch-recovery></launch-recovery>
+    <launch-vehicle></launch-vehicle>
+    
   </template>
 
   <script>

@@ -394,29 +394,6 @@ template {
 [hidden] {
   display: none; }
 
-nav {
-  border-bottom: 1px solid #ccc;
-  position: absolute;
-  text-align: center;
-  top: 0;
-  width: 100%;
-  -webkit-box-shadow: 0px 10px 64px -27px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 10px 64px -27px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 10px 64px -27px rgba(0, 0, 0, 0.75);
-  z-index: 9; }
-  nav h1 {
-    font-family: "Open Sans", sans-serif;
-    font-size: 3rem;
-    margin-top: 10px;
-    margin-bottom: 5px; }
-  nav h2 {
-    font-size: 2rem;
-    margin-top: 0px; }
-
-#main {
-  position: relative;
-  z-index: 10; }
-
 #loader {
   background: white;
   height: 100%;
@@ -491,3 +468,7 @@ nav {
   35% {
     -webkit-transform: scale3D(0, 0, 1);
     transform: scale3D(0, 0, 1); } }
+
+spacex-launch {
+  display: block;
+  color: blue; }
