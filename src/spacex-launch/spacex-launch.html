@@ -7,18 +7,21 @@
     <style>
       :host {
         display: block;
+        padding: 16px;
+        border-radius: 16px;
+        border: 0.5px solid #eee;
+        color: #444;
+        background-color: white;
+      }
+
+      :host(:not(:last-child)) {
+        margin-bottom: 16px;
       }
     </style>
 
-    <h2>SpaceX Launch: [[launchNumber]]</h2>
+    <h2>SpaceX Launch: [[launchData.flight_number]]</h2>
     <p id="mission"></p>
     <time id="launchDatetime"></time>
-    <div id="rocket">
-      <h3>Rocket Info</h3>
-      <span id="rocketId"></span>
-      <span id="rocketName"></span>
-      <span id="rocketType"></span>
-    </div>
     <p id="launchSite"></p>
     <launch-vehicle></launch-vehicle>
 
@@ -33,47 +36,45 @@
        static get is() { return 'spacex-launch'; }
        static get properties() {
          return {
-           launchNumber: {
-             type: Number,
-             reflectToAttribute: true,
-             value: 1
+           launchData: {
+             type: Object,
+             reflectToAttribute: true
            }
          };
        }
 
-       constructor() {
+       constructor(_launchData) {
          super();
-         console.log('createdCallback');
-         this.fetchData(this.getAttribute('launch-number'), this.renderInfo);
+         this.launchData = _launchData;
+       }
+
+       ready() {
+         super.ready();
+         this.render(this.launchData, this);
        }
 
        fetchData(launchNum, callback) {
-         console.log('fetchData');
          fetch(`https://v2-test.herokuapp.com/v2/launches?flight_number=${launchNum}`).then((res) => {
-           console.log('fetch requested');
            return res.json();
          }).then((json) => {
-           console.log(json);
-           console.log(this);
            callback(json[0], this);
          }).catch((err) => {
            console.error(err);
          });
        }
 
-       renderInfo(data, el) {
-         console.dir(el);
-         console.log(el, el.shadowRoot, el.root);
+       render(data, el) {
          let dom = el.shadowRoot;
 
          let payload = data.payloads[0];
          el.root.querySelector('#mission').textContent =
-         `${payload.payload_id} (${payload.customer})`;
+         `${payload.payload_id} (${payload.customers.join('/')})`;
 
          let datetime = dom.querySelector('#launchDatetime');
          datetime.setAttribute('datetime', data.launch_date_local);
          datetime.textContent = new Date(data.launch_date_local);
          datetime.title = datetime.getAttribute('datetime');
+         dom.querySelector('launch-vehicle').vehicleData = data.rocket;
        }
      }
 

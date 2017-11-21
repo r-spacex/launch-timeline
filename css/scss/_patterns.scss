@@ -5,9 +5,14 @@ $openSans: 'Open Sans', sans-serif;
 
 //Colors
 $light-gray: #ccc;
+$background-gray: #f5f5f5;
 $spacex-blue: #3569a4;
 
-*{
+* {
   font-family: $openSans;
-  font-size: 10px;
+  font-size: 14px;
+}
+
+body {
+  background-color: $background-gray;
 }

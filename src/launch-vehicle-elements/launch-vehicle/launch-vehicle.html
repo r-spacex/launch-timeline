@@ -7,23 +7,34 @@
         display: inline-block;
       }
     </style>
-    <span>Launch Vehicle: [[launchVehicle]]</span>
+    <h3>Rocket Info</h3>
+    <p id="rocketId">Rocket ID: <code>[[vehicleData.rocket_id]]</code></p>
+    <p id="rocketName">Rocket Name: [[vehicleData.rocket_name]]</p>
+    <p id="rocketType">Rocket Type: [[vehicleData.rocket_type]]</p>
   </template>
 
   <script>
     /**
-     * @customElement
+     * @customElement launch-vehicle
      * @polymer
      */
      class LaunchVehicle extends Polymer.Element {
        static get is() { return 'launch-vehicle'; }
        static get properties() {
          return {
-          launchVehicle: {
-             type: String,
-             value: "FH"
+           vehicleData: {
+             type: Object,
+             reflectToAttribute: true,
+             value: { rocket_id: 'unknown', rocket_name: 'Unknown Rocket', rocket_type: 'Unknown Type'}
+           },
+           payloadId: {
+             type: String
            }
          };
+       }
+
+       vehicleDataString(data) {
+         return JSON.stringify(data);
        }
      }
 

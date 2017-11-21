@@ -8,6 +8,9 @@
     <style>
       :host {
         display: block;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 16px;
       }
     </style>
     <link rel="stylesheet" href="./css/styles.css">
@@ -22,7 +25,7 @@
 
     <h2>Hello!</h2>
     <template is="dom-repeat" items="[[launches]]">
-      <spacex-launch></spacex-launch>
+      <spacex-launch launch-data="[[item]]"></spacex-launch>
     </template>
 
   </template>
