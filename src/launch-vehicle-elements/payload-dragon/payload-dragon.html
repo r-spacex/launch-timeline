@@ -1,0 +1,31 @@
+<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="payload-dragon">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <img src="[[importPath]]/dragon-1.svg">
+
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+     class PayloadDragon extends Polymer.Element {
+       static get is() { return 'payload-dragon'; }
+       constructor() {
+         super();
+         console.dir(this);
+       }
+     }
+
+
+     window.customElements.define(PayloadDragon.is, PayloadDragon);
+   </script>
+ </dom-module>
