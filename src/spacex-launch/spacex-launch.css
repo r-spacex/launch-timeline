@@ -403,7 +403,7 @@ template {
   border-radius: 16px;
   border: 0.5px solid #eee;
   color: #444;
-  background-color: white; }
+  background-color: white;
+  text-align: center; }
 
-:host(:not(:last-child)) {
-  margin-bottom: 16px; }
+/*# sourceMappingURL=spacex-launch.css.map */

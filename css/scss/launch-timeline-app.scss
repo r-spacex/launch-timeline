@@ -10,8 +10,26 @@
   max-height: 100vh;
   margin: 0 auto;
   padding: 0 16px;
-  overflow-x: scroll;
   overflow-y: hidden;
   white-space:nowrap;
   width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-area {
+  overflow-x: auto;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+header {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+}
+
+header h2 {
+  flex-grow: 1;
 }

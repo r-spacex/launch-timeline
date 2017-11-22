@@ -6,10 +6,9 @@
 
 <dom-module id="launch-vehicle">
   <template>
-    <link rel="stylesheet" href="[[importPath]]/launch-vehicle.css">      
+    <link rel="stylesheet" href="[[importPath]]/launch-vehicle.css">
 
-    <h3>Rocket Info</h3>
-    <p id="rocketId">Rocket ID: <code>[[vehicleData.rocket_id]]</code></p>
+    <p id="rocketId"><code>[[vehicleData.rocket_id]]</code></p>
     <div class="rocket-area">
       <img src="./images/falcon-svg/payload/[[payloadImagePath(isDragon)]].svg" id="payloadImage">
       <img src="./images/falcon-svg/[[buildBoosterImage(vehicleData,landingAttempt)]].svg" id="boosterImage">

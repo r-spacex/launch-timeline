@@ -5,9 +5,8 @@
 <dom-module id="spacex-launch">
   <template>
     <link rel="stylesheet" href="[[importPath]]/spacex-launch.css">
-
-    <h2>SpaceX Launch: [[launchData.flight_number]]</h2>
     <p id="mission"></p>
+    <p id="customer">[[customerString(launchData.payloads.0)]]</p>
     <time id="launchDatetime" datetime="[[launchData.launch_date_local]]"
         title="[[launchData.launch_date_local]]"></time>
     <p id="launchSite"></p>
@@ -15,7 +14,7 @@
                     vehicle-data="[[launchData.rocket]]"
                     landing-attempt="[[hasLanding(launchData)]]"
                     core-serial="[[launchData.core_serial]]"></launch-vehicle>
-
+    <h2>[[launchData.flight_number]]</h2>
   </template>
 
   <script>
@@ -62,11 +61,15 @@
          let dom = el.shadowRoot;
 
          let payload = data.payloads[0];
-         el.root.querySelector('#mission').textContent =
-         `${payload.payload_id} (${payload.customers.join('/')})`;
+         el.root.querySelector('#mission').textContent = `${payload.payload_id}`;
 
+         let launchDate = new Date(data.launch_date_local);
          let datetime = dom.querySelector('#launchDatetime');
-         datetime.textContent = new Date(data.launch_date_local);
+         datetime.textContent = launchDate.toLocaleDateString(navigator.userLanguage, {month: 'short', day: '2-digit'});
+       }
+
+       customerString(payload) {
+         return payload.customers.join('/');
        }
 
        hasLanding(data){

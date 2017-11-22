@@ -16,7 +16,7 @@
     </iron-ajax>
 
     <header>
-      <h2>Hello!</h2>
+      <h2>Launch Timeline</h2>
       <select class="yearSelect" name="yearSelect" id="yearSelect" value="{{yearFilter::change}}">
         <option value="all">All</option>
         <template is="dom-repeat" items=[[launchYears]]>
@@ -24,9 +24,11 @@
         </template>
       </select>
     </header>
-    <template is="dom-repeat" items="[[launches]]" initialCount="20" filter="{{filterYear(yearFilter)}}">
-      <spacex-launch launch-data="[[item]]"></spacex-launch>
-    </template>
+    <div class="scroll-area">
+      <template is="dom-repeat" items="[[launches]]" as="launch" initialCount="20" filter="{{filterYear(yearFilter)}}">
+        <spacex-launch launch-data="[[launch]]"></spacex-launch>
+      </template>
+    </div>
 
   </template>
 
