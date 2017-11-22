@@ -5,15 +5,7 @@
 
 <dom-module id="launch-timeline-app">
   <template>
-    <style>
-      :host {
-        display: block;
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 0 16px;
-      }
-    </style>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="[[importPath]]/launch-timeline-app.css">     
 
     <iron-ajax
         auto
@@ -24,9 +16,11 @@
     </iron-ajax>
 
     <h2>Hello!</h2>
-    <template is="dom-repeat" items="[[launches]]">
-      <spacex-launch launch-data="[[item]]"></spacex-launch>
-    </template>
+    <div class="scroll-area">
+      <template is="dom-repeat" items="[[launches]]">
+        <spacex-launch launch-data="[[item]]"></spacex-launch>
+      </template>
+    </div>
 
   </template>
 

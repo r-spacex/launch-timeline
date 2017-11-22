@@ -4,20 +4,7 @@
 
 <dom-module id="spacex-launch">
   <template>
-    <style>
-      :host {
-        display: block;
-        padding: 16px;
-        border-radius: 16px;
-        border: 0.5px solid #eee;
-        color: #444;
-        background-color: white;
-      }
-
-      :host(:not(:last-child)) {
-        margin-bottom: 16px;
-      }
-    </style>
+    <link rel="stylesheet" href="[[importPath]]/spacex-launch.css">
 
     <h2>SpaceX Launch: [[launchData.flight_number]]</h2>
     <p id="mission"></p>

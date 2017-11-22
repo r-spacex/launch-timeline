@@ -396,3 +396,14 @@ template {
  */
 [hidden] {
   display: none; }
+
+:host {
+  display: inline-block;
+  padding: 16px;
+  border-radius: 16px;
+  border: 0.5px solid #eee;
+  color: #444;
+  background-color: white; }
+
+:host(:not(:last-child)) {
+  margin-bottom: 16px; }
