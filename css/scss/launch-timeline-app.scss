@@ -1,0 +1,17 @@
+//Basics Patterns and colors
+@import "_patterns";
+
+//normalization CSS
+@import "_norms";
+
+:host {
+  display: block;
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0 auto;
+  padding: 0 16px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap;
+  width: auto;
+}

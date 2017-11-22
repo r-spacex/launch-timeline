@@ -6,42 +6,8 @@
 
 <dom-module id="launch-vehicle">
   <template>
-    <style>
-      :host {
-        display: inline-block;
-      }
+    <link rel="stylesheet" href="[[importPath]]/launch-vehicle.css">      
 
-      #payloadImage {
-        margin-bottom: -7px;
-        z-index: 2;
-      }
-
-      #boosterImage {
-        z-index: 1;
-      }
-
-      .rocket-area {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-
-        --paper-tooltip-background: #fff;
-        --paper-tooltip-text-color: #333;
-        --paper-tooltip: {
-          padding: 16px;
-          border-radius: 8px;
-          border: 0.5px solid #ddd;
-          font-size: 1em;
-        }
-      }
-
-      paper-tooltip h2 {
-        margin: 0;
-        padding-bottom: 8px;
-        border-bottom: 0.5px solid #ddd;
-        font-weight: 600;
-      }
-    </style>
     <h3>Rocket Info</h3>
     <p id="rocketId">Rocket ID: <code>[[vehicleData.rocket_id]]</code></p>
     <div class="rocket-area">
