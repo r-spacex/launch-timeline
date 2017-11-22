@@ -1,4 +1,4 @@
-<link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+  <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../../bower_components/polymer/lib/elements/dom-if.html">
 <link rel="import" href="../../../bower_components/paper-tooltip/paper-tooltip.html">
 <link rel="import" href="../payload-dragon/payload-dragon.html">
@@ -10,7 +10,7 @@
 
     <p id="rocketId"><code>[[vehicleData.rocket_id]]</code></p>
     <div class="rocket-area">
-      <img src="./images/falcon-svg/payload/[[payloadImagePath(isDragon)]].svg" id="payloadImage">
+      <img src="[[payloadImagePath]]" id="payloadImage" style="display: [[_payloadDisplay]];">
       <img src="./images/falcon-svg/[[buildBoosterImage(vehicleData,landingAttempt)]].svg" id="boosterImage">
       <paper-tooltip for="boosterImage" position="right">
         <h2>Core [[coreSerial]] - [[vehicleData.rocket_name]] [[vehicleData.rocket_type]]</h2>
@@ -51,6 +51,14 @@
            coreSerial: {
              type: String,
              reflectToAttribute: true
+           },
+           payloadImagePath: {
+             type: String,
+             computed: '_payloadImagePath(isDragon)'
+           },
+           _payloadDisplay: {
+             type: String,
+             computed: '_getPayloadDisplay(vehicleData)'
            }
          };
        }
@@ -75,8 +83,14 @@
          return imagePath;
        }
 
-       payloadImagePath(dragon) {
-         if (this.vehicleData.rocket_id != "falcon1") return dragon ? "dragon" : "fairing";
+       _payloadImagePath(dragon) {
+         return `./images/falcon-svg/payload/${dragon ? "dragon" : "fairing"}.svg`;
+       }
+
+       _getPayloadDisplay(vehicle) {
+         if (vehicle.rocket_id == 'falcon1') {
+           return 'none';
+         } else return 'block';
        }
 
        _isPayloadDragon(_payloadType) {
