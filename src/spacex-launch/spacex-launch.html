@@ -43,6 +43,10 @@
            launchData: {
              type: Object,
              reflectToAttribute: true
+           },
+           launchYear: {
+             type: Number,
+             computed: 'getLaunchYear(launchData)'
            }
          };
        }
@@ -80,6 +84,10 @@
 
        hasLanding(data){
          return (data.landing_type != null && data.landing_type != "Ocean");
+       }
+
+       getLaunchYear(launch) {
+         return parseInt(launch.launch_year);
        }
      }
 

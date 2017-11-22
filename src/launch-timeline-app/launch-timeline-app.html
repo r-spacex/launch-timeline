@@ -12,6 +12,18 @@
         margin: 0 auto;
         padding: 0 16px;
       }
+
+      header {
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      header h2 {
+        flex-grow: 1;
+      }
+
+
     </style>
     <link rel="stylesheet" href="./css/styles.css">
 
@@ -23,8 +35,16 @@
         >
     </iron-ajax>
 
-    <h2>Hello!</h2>
-    <template is="dom-repeat" items="[[launches]]">
+    <header>
+      <h2>Hello!</h2>
+      <select class="yearSelect" name="yearSelect" id="yearSelect" value="{{yearFilter::change}}">
+        <option value="all">All</option>
+        <template is="dom-repeat" items=[[launchYears]]>
+          <option value$="[[item]]">[[item]]</option>
+        </template>
+      </select>
+    </header>
+    <template is="dom-repeat" items="[[launches]]" initialCount="20" filter="{{filterYear(yearFilter)}}">
       <spacex-launch launch-data="[[item]]"></spacex-launch>
     </template>
 
@@ -41,6 +61,13 @@
         return {
           launches: {
             type: Array
+          },
+          launchYears: {
+            type: Array,
+            computed: 'getLaunchYears(launches)'
+          },
+          yearFilter: {
+            type: String
           }
         };
       }
@@ -48,6 +75,27 @@
       json(obj) {
         console.log("here");
         return JSON.stringify(obj, null, 2);
+      }
+
+      getLaunchYears(launches) {
+        let years = launches.map(launch => launch.launch_year);
+        years = years.filter((value, index, self) => (self.indexOf(value) == index));
+        return years;
+      }
+
+      filterYear(year) {
+        if (year == 'all') {
+          return null;
+        } else {
+          return function(launch) {
+            return launch.launch_year == year;
+          }
+        }
+      }
+
+      ready() {
+        super.ready();
+        this.shadowRoot.querySelector("#yearSelect").dispatchEvent(new Event('change'));
       }
     }
 
