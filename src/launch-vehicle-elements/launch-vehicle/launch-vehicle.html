@@ -9,6 +9,11 @@
       :host {
         display: inline-block;
       }
+      .rocket-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     </style>
     <h3>Rocket Info</h3>
     <p id="rocketId">Rocket ID: <code>[[vehicleData.rocket_id]]</code></p>
@@ -44,7 +49,7 @@
              type: String,
              reflectToAttribute: true
            },
-          landingAttempt: {
+           landingAttempt: {
              type: Boolean,
              reflectToAttribute: true
            },
@@ -60,26 +65,19 @@
        }
 
        buildBoosterImage(vehicleData, landingAttempt){
-         var isReuse;
-         switch(landingAttempt){
-           case true:
-            isReuse = "reuse";
-           break;
-           case false:
-            isReuse = "expendable";
-           break;
+         let imagePath = vehicleData.rocket_id;
+         let isReuse = landingAttempt ? "reuse" : "expendable";
+
+         if (vehicleData.rocket_id == "falcon9") {
+           if (vehicleData.rocket_type == "v1.0") {
+             imagePath += "-" + vehicleData.rocket_type;
+           } else if (vehicleData.rocket_type == "v1.1") {
+             imagePath += "-" + vehicleData.rocket_type + "-" + isReuse;
+           } else if (vehicleData.rocket_type == "v1.2" || vehicleData.rocket_type == "FT") {
+             imagePath += "-v1.2-" + isReuse;
+           }
          }
-          
-          if(vehicleData.rocket_id == "falcon1"){
-              return vehicleData.rocket_id;
-          } else if(vehicleData.rocket_id == "falcon9"){
-              if(vehicleData.rocket_type == "v1.0")
-                return vehicleData.rocket_id + "-" + vehicleData.rocket_type;
-              else if(vehicleData.rocket_type == "v1.1")
-                return vehicleData.rocket_id + "-" + vehicleData.rocket_type + "-" + isReuse;
-              else if(vehicleData.rocket_type == "v1.2" || vehicleData.rocket_type == "FT")
-                return vehicleData.rocket_id + "-v1.2" + "-" + isReuse;
-          }
+         return imagePath;
        }
 
        _isPayloadDragon(_payloadType) {
