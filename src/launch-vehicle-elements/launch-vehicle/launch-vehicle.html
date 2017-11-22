@@ -1,5 +1,6 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../../../bower_components/polymer/lib/elements/dom-if.html">
+<link rel="import" href="../../../bower_components/paper-tooltip/paper-tooltip.html">
 <link rel="import" href="../payload-dragon/payload-dragon.html">
 <link rel="import" href="../payload-fairing/payload-fairing.html">
 
@@ -13,20 +14,34 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        --paper-tooltip-background: #fff;
+        --paper-tooltip-text-color: #333;
+        --paper-tooltip: {
+          padding: 16px;
+          border-radius: 8px;
+          border: 0.5px solid #ddd;
+          font-size: 1em;
+        }
+      }
+
+      paper-tooltip h2 {
+        margin: 0;
+        padding-bottom: 8px;
+        border-bottom: 0.5px solid #ddd;
+        font-weight: 600;
       }
     </style>
     <h3>Rocket Info</h3>
     <p id="rocketId">Rocket ID: <code>[[vehicleData.rocket_id]]</code></p>
-    <p id="rocketName">Rocket Name: [[vehicleData.rocket_name]]</p>
-    <p id="rocketType">Rocket Type: [[vehicleData.rocket_type]]</p>
     <div class="rocket-area">
-      <template is="dom-if" if="[[isDragon]]">
-        <payload-dragon></payload-dragon>
-      </template>
-      <template is="dom-if" if="[[_satellite()]]">
-        <payload-fairing></payload-fairing>
-      </template>
-      <img src="./images/falcon-svg/[[buildBoosterImage(vehicleData,landingAttempt)]].svg">
+      <img src="./images/falcon-svg/payload/[[payloadImagePath(isDragon)]].svg">
+      <img src="./images/falcon-svg/[[buildBoosterImage(vehicleData,landingAttempt)]].svg" id="boosterImage">
+      <paper-tooltip for="boosterImage" position="right">
+        <h2>Core [[coreSerial]] - [[vehicleData.rocket_name]] [[vehicleData.rocket_type]]</h2>
+        <ul>
+          <li>Reusable: [[isReusable(landingAttempt)]]</li>
+        </ul>
+      </paper-tooltip>
     <div>
 
   </template>
@@ -56,6 +71,10 @@
            isDragon: {
              type: Boolean,
              computed: '_isPayloadDragon(payloadType)'
+           },
+           coreSerial: {
+             type: String,
+             reflectToAttribute: true
            }
          };
        }
@@ -80,12 +99,20 @@
          return imagePath;
        }
 
+       payloadImagePath(dragon) {
+         if (this.vehicleData.rocket_id != "falcon1") return dragon ? "dragon" : "fairing";
+       }
+
        _isPayloadDragon(_payloadType) {
          return _payloadType.toLowerCase().includes('dragon');
        }
 
        _satellite() {
          return !this.isDragon && (this.vehicleData.rocket_id != 'falcon1');
+       }
+
+       isReusable(landingAttempt) {
+         return landingAttempt ? "Yes" : "No";
        }
      }
 

@@ -26,7 +26,8 @@
     <p id="launchSite"></p>
     <launch-vehicle payload-type="[[launchData.payloads.0.payload_type]]"
                     vehicle-data="[[launchData.rocket]]"
-                    landing-attempt="[[hasLanding(launchData)]]"></launch-vehicle>
+                    landing-attempt="[[hasLanding(launchData)]]"
+                    core-serial="[[launchData.core_serial]]"></launch-vehicle>
 
   </template>
 
