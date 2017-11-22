@@ -21,7 +21,7 @@
       <template is="dom-if" if="[[_satellite()]]">
         <payload-fairing></payload-fairing>
       </template>
-      <img src="./images/falcon-svg/[[buildBoosterImage(vehicleData)]].svg">
+      <img src="./images/falcon-svg/[[buildBoosterImage(vehicleData,landingAttempt)]].svg">
     <div>
 
   </template>
@@ -44,6 +44,10 @@
              type: String,
              reflectToAttribute: true
            },
+          landingAttempt: {
+             type: Boolean,
+             reflectToAttribute: true
+           },
            isDragon: {
              type: Boolean,
              computed: '_isPayloadDragon(payloadType)'
@@ -55,16 +59,26 @@
          return JSON.stringify(data);
        }
 
-       buildBoosterImage(vehicleData){
+       buildBoosterImage(vehicleData, landingAttempt){
+         var isReuse;
+         switch(landingAttempt){
+           case true:
+            isReuse = "reuse";
+           break;
+           case false:
+            isReuse = "expendable";
+           break;
+         }
+          
           if(vehicleData.rocket_id == "falcon1"){
               return vehicleData.rocket_id;
           } else if(vehicleData.rocket_id == "falcon9"){
               if(vehicleData.rocket_type == "v1.0")
                 return vehicleData.rocket_id + "-" + vehicleData.rocket_type;
               else if(vehicleData.rocket_type == "v1.1")
-                return vehicleData.rocket_id + "-" + vehicleData.rocket_type + "-reuse";
+                return vehicleData.rocket_id + "-" + vehicleData.rocket_type + "-" + isReuse;
               else if(vehicleData.rocket_type == "v1.2" || vehicleData.rocket_type == "FT")
-                return vehicleData.rocket_id + "-v1.2-reuse";
+                return vehicleData.rocket_id + "-v1.2" + "-" + isReuse;
           }
        }
 

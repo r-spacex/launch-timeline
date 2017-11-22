@@ -25,7 +25,8 @@
         title="[[launchData.launch_date_local]]"></time>
     <p id="launchSite"></p>
     <launch-vehicle payload-type="[[launchData.payloads.0.payload_type]]"
-                    vehicle-data="[[launchData.rocket]]"></launch-vehicle>
+                    vehicle-data="[[launchData.rocket]]"
+                    landing-attempt="[[hasLanding(launchData)]]"></launch-vehicle>
 
   </template>
 
@@ -74,6 +75,10 @@
 
          let datetime = dom.querySelector('#launchDatetime');
          datetime.textContent = new Date(data.launch_date_local);
+       }
+
+       hasLanding(data){
+         return (data.landing_type != null && data.landing_type != "Ocean");
        }
      }
 
