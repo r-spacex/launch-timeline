@@ -14,12 +14,16 @@
     <p id="rocketId">Rocket ID: <code>[[vehicleData.rocket_id]]</code></p>
     <p id="rocketName">Rocket Name: [[vehicleData.rocket_name]]</p>
     <p id="rocketType">Rocket Type: [[vehicleData.rocket_type]]</p>
-    <template is="dom-if" if="[[isDragon]]">
-      <payload-dragon></payload-dragon>
-    </template>
-    <template is="dom-if" if="[[_satellite()]]">
-      <payload-fairing></payload-fairing>
-    </template>
+    <div class="rocket-area">
+      <template is="dom-if" if="[[isDragon]]">
+        <payload-dragon></payload-dragon>
+      </template>
+      <template is="dom-if" if="[[_satellite()]]">
+        <payload-fairing></payload-fairing>
+      </template>
+      <img src="./images/falcon-svg/[[buildBoosterImage(vehicleData)]].svg">
+    <div>
+
   </template>
 
   <script>
@@ -49,6 +53,19 @@
 
        vehicleDataString(data) {
          return JSON.stringify(data);
+       }
+
+       buildBoosterImage(vehicleData){
+          if(vehicleData.rocket_id == "falcon1"){
+              return vehicleData.rocket_id;
+          } else if(vehicleData.rocket_id == "falcon9"){
+              if(vehicleData.rocket_type == "v1.0")
+                return vehicleData.rocket_id + "-" + vehicleData.rocket_type;
+              else if(vehicleData.rocket_type == "v1.1")
+                return vehicleData.rocket_id + "-" + vehicleData.rocket_type + "-reuse";
+              else if(vehicleData.rocket_type == "v1.2" || vehicleData.rocket_type == "FT")
+                return vehicleData.rocket_id + "-v1.2-reuse";
+          }
        }
 
        _isPayloadDragon(_payloadType) {
