@@ -2,14 +2,14 @@
 
 //Fonts
 $openSans: 'Open Sans', sans-serif;
-
+$system: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, sans-serif;
 //Colors
 $light-gray: #ccc;
 $background-gray: #f5f5f5;
 $spacex-blue: #3569a4;
 
 * {
-  font-family: $openSans;
+  font-family: $system;
   font-size: 14px;
 }
 
