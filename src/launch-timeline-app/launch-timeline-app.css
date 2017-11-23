@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
 * {
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -413,12 +414,42 @@ template {
   border-radius: 16px;
   color: #444;
   display: block;
-  padding: 16px;
-  text-align: center;
   min-width: 150px;
-  max-width: 150px; }
+  max-width: 150px;
+  padding: 16px;
+  position: relative;
+  text-align: center; }
   #elon img {
-    max-height: 15px; }
+    bottom: 13vh;
+    max-height: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); }
+  #elon p {
+    bottom: 7vh;
+    height: 4vh;
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%); }
+
+#timeline {
+  bottom: 3vh;
+  border-bottom: 1px solid #3569a4;
+  position: absolute;
+  width: 100%;
+  z-index: 10; }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    #timeline {
+      border-bottom-width: 0.75px; } }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #timeline {
+      border-bottom-width: 0.5px; } }
+  #timeline:before {
+    content: "Timeline";
+    left: 0;
+    position: absolute;
+    top: -20px; }
 
 .scroll-area {
   align-items: flex-end;
@@ -429,7 +460,8 @@ template {
   .scroll-area .altitude-line {
     border-bottom: 1px solid #3569a4;
     position: absolute;
-    width: 100%; }
+    width: 100%;
+    z-index: 10; }
     @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       .scroll-area .altitude-line {
         border-bottom-width: 0.75px; } }
@@ -451,15 +483,15 @@ template {
       .scroll-area .altitude-line#gto:after {
         content: "37,500 km"; }
     .scroll-area .altitude-line#leo {
-      top: 20%; }
+      top: 18%; }
       .scroll-area .altitude-line#leo:before {
         content: "Low Earth Orbit"; }
       .scroll-area .altitude-line#leo:after {
         content: "160 - 2,000 km"; }
     .scroll-area .altitude-line#karman {
-      top: 30%; }
+      top: 26%; }
       .scroll-area .altitude-line#karman:before {
-        content: "Karman Line"; }
+        content: "Kármán Line"; }
       .scroll-area .altitude-line#karman:after {
         content: "100 km"; }
 
@@ -472,5 +504,3 @@ header {
 
 header h2 {
   flex-grow: 1; }
-
-/*# sourceMappingURL=launch-timeline-app.css.map */

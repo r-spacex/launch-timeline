@@ -9,12 +9,37 @@
   border-radius: 16px;
   color: #444;
   display: block;
-  padding: 16px;
-  text-align: center;
+  height: 100vh;
   min-width: 150px;
   max-width: 150px;
+  padding: 16px;
+  position: relative;
+  text-align: center;
 }
 
 p{
   white-space: normal;
+}
+
+.altitude{
+  background: red;
+  height: 100%;
+  position: absolute;
+}
+
+#mission, #launchDatetime{
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#mission{
+  bottom: 7vh;
+  height: 4vh;
+  position: absolute;
+  width: 100%;
+}
+
+#launchDatetime{
+  bottom: 6.5vh;
+  position: absolute;
 }

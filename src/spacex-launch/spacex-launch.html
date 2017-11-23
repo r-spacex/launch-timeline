@@ -5,17 +5,14 @@
 <dom-module id="spacex-launch">
   <template>
     <link rel="stylesheet" href="[[importPath]]/spacex-launch.css">
-    <p id="customer">[[customerString(launchData.payloads.0)]]</p>
-    <time id="launchDatetime" datetime="[[launchData.launch_date_local]]"
-        title="[[launchData.launch_date_local]]"></time>
-    <p id="launchSite"></p>
-    <div class="altitude" orbit$="{{launchData.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}">[[launchData.launch_success]]</div>
+    <div class="altitude" orbit$="{{launchData.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}"></div>
     <launch-vehicle payload-type="[[launchData.payloads.0.payload_type]]"
                     vehicle-data="[[launchData.rocket]]"
                     landing-attempt="[[hasLanding(launchData)]]"
                     core-serial="[[launchData.core_serial]]"></launch-vehicle>
     <p id="mission">[[launchData.payloads.0.payload_id]]</p>
-    <h2>[[launchData.flight_number]]</h2>
+    <time id="launchDatetime" year$="[[getLaunchYear(launchData)]]" datetime="[[launchData.launch_date_local]]"
+        title="[[launchData.launch_date_local]]"></time>
   </template>
 
   <script>
