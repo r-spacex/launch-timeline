@@ -17,6 +17,7 @@
 
     <header>
       <h2>Launch Timeline</h2>
+      <input type="text" placeholder="Filter..." value="{{missionFilter::input}}">
       <select class="yearSelect" name="yearSelect" id="yearSelect" value="{{yearFilter::change}}">
         <option value="all">All</option>
         <template is="dom-repeat" items=[[launchYears]]>
