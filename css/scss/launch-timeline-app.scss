@@ -5,29 +5,97 @@
 @import "_norms";
 
 :host {
-  display: block;
-  height: 100vh;
-  max-height: 100vh;
-  margin: 0 auto;
-  padding: 0 16px;
-  overflow-y: hidden;
-  white-space:nowrap;
-  width: auto;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  margin: 0 auto;
+  max-height: 100vh;
+  overflow-y: hidden;
+  padding: 0 16px;
+  width: auto;
+  white-space:nowrap;
+}
+
+#elon{
+    box-sizing: border-box;
+    border-radius: 16px;
+    color: #444;
+    display: block;
+    padding: 16px;
+    text-align: center;
+    min-width: 150px;
+    max-width: 150px;
+
+    img{
+      max-height: 15px;
+    }
 }
 
 .scroll-area {
-  overflow-x: auto;
-  flex-grow: 1;
-  display: flex;
   align-items: flex-end;
+  display: flex;
+  flex-grow: 1;
+  overflow-x: auto;
+
+  .altitude-line{
+    border-bottom: 1px $spacex-blue solid;
+    position: absolute;
+    width: 100%;
+
+    &:before{
+      left: 0;
+      position: absolute;
+      top: -20px;
+    }
+
+    &:after{
+      left: 0;
+      position: absolute;
+      top: 4px;        
+    }
+
+    &#gto{
+      top: 10%;
+
+      &:before{
+        content: "Geostationary Transfer Orbit";
+      }
+
+      &:after{
+        content: "37,500 km";
+      }
+    }
+
+    &#leo{
+      top: 20%;
+
+      &:before{
+        content: "Low Earth Orbit";
+      }
+
+      &:after{
+        content: "160 - 2,000 km";
+      }
+    }
+
+    &#karman{
+      top:30%;
+
+      &:before{
+        content: "Karman Line";
+      }
+
+      &:after{
+        content: "100 km";
+      }
+    }
+  }
 }
 
 header {
+  align-items: center;
   display: flex !important;
   flex-direction: row;
-  align-items: center;
 }
 
 header h2 {

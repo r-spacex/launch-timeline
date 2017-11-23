@@ -413,17 +413,13 @@ template {
   flex-direction: column;
   --paper-tooltip-background: #fff;
   --paper-tooltip-text-color: #333;
-  --paper-tooltip: {
-    padding: 16px;
-    border-radius: 8px;
-    border: 0.5px solid #ddd;
-    font-size: 1em;
-  }; }
+  --paper-tooltip-padding: 16px;
+  --paper-tooltip-border-radius: 8px;
+  --paper-tooltip-border: 0.5px solid #ddd;
+  --paper-tooltip-font-size: 1em; }
 
 paper-tooltip h2 {
   margin: 0;
   padding-bottom: 8px;
   border-bottom: 0.5px solid #ddd;
   font-weight: 600; }
-
-/*# sourceMappingURL=launch-vehicle.css.map */

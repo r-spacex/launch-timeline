@@ -26,6 +26,13 @@
       </select>
     </header>
     <div class="scroll-area">
+      <div class="altitude-line" id="gto"/></div>
+      <div class="altitude-line" id="leo"/></div>
+      <div class="altitude-line" id="karman"/></div>
+      <div id="elon">
+        <p>Elon Musk</p>
+        <img src="./images/elon.svg" />
+      </div>
       <template is="dom-repeat" items="[[launches]]" as="launch" initialCount="20" filter="{{filterYear(yearFilter)}}">
         <spacex-launch launch-data="[[launch]]"></spacex-launch>
       </template>

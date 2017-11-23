@@ -398,29 +398,68 @@ template {
   display: none; }
 
 :host {
-  display: block;
-  height: 100vh;
-  max-height: 100vh;
-  margin: 0 auto;
-  padding: 0 16px;
-  overflow-y: hidden;
-  white-space: nowrap;
-  width: auto;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 100vh;
+  margin: 0 auto;
+  max-height: 100vh;
+  overflow-y: hidden;
+  padding: 0 16px;
+  width: auto;
+  white-space: nowrap; }
+
+#elon {
+  box-sizing: border-box;
+  border-radius: 16px;
+  color: #444;
+  display: block;
+  padding: 16px;
+  text-align: center;
+  min-width: 150px;
+  max-width: 150px; }
+  #elon img {
+    max-height: 25px; }
 
 .scroll-area {
-  overflow-x: auto;
-  flex-grow: 1;
+  align-items: flex-end;
   display: flex;
-  align-items: flex-end; }
+  flex-grow: 1;
+  overflow-x: auto; }
+  .scroll-area .altitude-line {
+    border-bottom: 1px #3569a4 solid;
+    position: absolute;
+    width: 100%; }
+    .scroll-area .altitude-line:before {
+      left: 0;
+      position: absolute;
+      top: -20px; }
+    .scroll-area .altitude-line:after {
+      left: 0;
+      position: absolute;
+      top: 4px; }
+    .scroll-area .altitude-line#gto {
+      top: 10%; }
+      .scroll-area .altitude-line#gto:before {
+        content: "Geostationary Transfer Orbit"; }
+      .scroll-area .altitude-line#gto:after {
+        content: "37,500 km"; }
+    .scroll-area .altitude-line#leo {
+      top: 20%; }
+      .scroll-area .altitude-line#leo:before {
+        content: "Low Earth Orbit"; }
+      .scroll-area .altitude-line#leo:after {
+        content: "160 - 2,000 km"; }
+    .scroll-area .altitude-line#karman {
+      top: 30%; }
+      .scroll-area .altitude-line#karman:before {
+        content: "Karman Line"; }
+      .scroll-area .altitude-line#karman:after {
+        content: "100 km"; }
 
 header {
+  align-items: center;
   display: flex !important;
-  flex-direction: row;
-  align-items: center; }
+  flex-direction: row; }
 
 header h2 {
   flex-grow: 1; }
-
-/*# sourceMappingURL=launch-timeline-app.css.map */
