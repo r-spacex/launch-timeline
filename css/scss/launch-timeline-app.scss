@@ -36,6 +36,7 @@
   display: flex;
   flex-grow: 1;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch; //iOS Momentum Scrolling
 
   .altitude-line{
     border-bottom: 1px $spacex-blue solid;

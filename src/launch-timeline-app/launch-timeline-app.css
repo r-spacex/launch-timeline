@@ -418,13 +418,14 @@ template {
   min-width: 150px;
   max-width: 150px; }
   #elon img {
-    max-height: 25px; }
+    max-height: 15px; }
 
 .scroll-area {
   align-items: flex-end;
   display: flex;
   flex-grow: 1;
-  overflow-x: auto; }
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; }
   .scroll-area .altitude-line {
     border-bottom: 1px #3569a4 solid;
     position: absolute;
