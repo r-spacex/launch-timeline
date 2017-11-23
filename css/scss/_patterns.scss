@@ -16,3 +16,13 @@ $spacex-blue: #3569a4;
 body {
   background-color: $background-gray;
 }
+
+@mixin thin-border($location, $pattern, $color) {
+  border-#{$location}: 1px $pattern $color;
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    border-#{$location}-width: 0.75px;
+  }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    border-#{$location}-width: 0.5px;
+  }
+}

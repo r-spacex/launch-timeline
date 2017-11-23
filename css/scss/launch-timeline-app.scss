@@ -39,7 +39,7 @@
   -webkit-overflow-scrolling: touch; //iOS Momentum Scrolling
 
   .altitude-line{
-    border-bottom: 1px $spacex-blue solid;
+    @include thin-border(bottom, solid, $spacex-blue);
     position: absolute;
     width: 100%;
 
@@ -52,7 +52,7 @@
     &:after{
       left: 0;
       position: absolute;
-      top: 4px;        
+      top: 4px;
     }
 
     &#gto{
@@ -97,6 +97,9 @@ header {
   align-items: center;
   display: flex !important;
   flex-direction: row;
+  select, input {
+    font-family: inherit;
+  }
 }
 
 header h2 {

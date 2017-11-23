@@ -427,9 +427,15 @@ template {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch; }
   .scroll-area .altitude-line {
-    border-bottom: 1px #3569a4 solid;
+    border-bottom: 1px solid #3569a4;
     position: absolute;
     width: 100%; }
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+      .scroll-area .altitude-line {
+        border-bottom-width: 0.75px; } }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .scroll-area .altitude-line {
+        border-bottom-width: 0.5px; } }
     .scroll-area .altitude-line:before {
       left: 0;
       position: absolute;
@@ -461,6 +467,10 @@ header {
   align-items: center;
   display: flex !important;
   flex-direction: row; }
+  header select, header input {
+    font-family: inherit; }
 
 header h2 {
   flex-grow: 1; }
+
+/*# sourceMappingURL=launch-timeline-app.css.map */
