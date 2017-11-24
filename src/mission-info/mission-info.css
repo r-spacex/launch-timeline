@@ -403,7 +403,7 @@ template {
   background-color: white;
   border-top: 1px solid #ddd;
   position: absolute;
-  top: 50%;
+  top: 50vh;
   left: 0;
   right: 0;
   bottom: 0;
@@ -491,10 +491,10 @@ p {
   background-color: #3569a4; }
 
 .badge.success {
-  background-color: #0c0; }
+  background-color: #39aa56; }
 
 .badge.failure {
-  background-color: #c00; }
+  background-color: #db4545; }
 
 .scroll-area {
   padding: 16px;
