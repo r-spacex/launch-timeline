@@ -430,3 +430,20 @@ p {
 #launchDatetime {
   bottom: 6.5vh;
   position: absolute; }
+  #launchDatetime[vehicle]:after {
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    width: 10px;
+    transform: translateX(-50%); }
+  #launchDatetime[vehicle="falcon1"]:after {
+    background: #446e88; }
+  #launchDatetime[vehicle="falcon9v1.0"]:after {
+    background: #e8c57c; }
+  #launchDatetime[vehicle="falcon9v1.1"]:after {
+    background: #f4a281; }
+  #launchDatetime[vehicle="falcon9FT"]:after {
+    background: #8c84a6; }

@@ -42,4 +42,31 @@ p{
 #launchDatetime{
   bottom: 6.5vh;
   position: absolute;
+
+  &[vehicle]:after{
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    width: 10px;
+    transform: translateX(-50%);
+  }
+  
+  &[vehicle="falcon1"]:after{
+    background: $falcon-1;
+  }
+
+  &[vehicle="falcon9v1.0"]:after{
+    background: $falcon-9v1;
+  }
+
+  &[vehicle="falcon9v1.1"]:after{
+    background: $falcon-9v11;
+  }
+
+  &[vehicle="falcon9FT"]:after{
+    background: $falcon-9FT;
+  }
 }

@@ -11,7 +11,7 @@
                     landing-attempt="[[hasLanding(launchData)]]"
                     core-serial="[[launchData.core_serial]]"></launch-vehicle>
     <p id="mission">[[launchData.payloads.0.payload_id]]</p>
-    <time id="launchDatetime" year$="[[getLaunchYear(launchData)]]" datetime="[[launchData.launch_date_local]]"
+    <time id="launchDatetime" year$="{{getLaunchYear(launchData)}}" vehicle$="{{getVehicle(launchData)}}" datetime="[[launchData.launch_date_local]]"
         title="[[launchData.launch_date_local]]"></time>
   </template>
 
@@ -82,6 +82,17 @@
 
        getSuccess(isSuccessful){
          return isSuccessful ? true : false;
+       }
+
+       getVehicle(data){
+         let vehicle = data.rocket.rocket_id;
+         let engine = data.rocket.rocket_type;
+         
+         if(vehicle == "falcon1"){
+            return "falcon1";
+         } else {
+            return vehicle + engine;
+         }
        }
      }
 
