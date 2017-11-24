@@ -8,13 +8,11 @@
 <dom-module id="launch-vehicle">
   <template>
     <link rel="stylesheet" href="[[importPath]]/launch-vehicle.css">
-
-    <p id="rocketId"><code>[[vehicleData.rocket_id]]</code></p>
     <div class="rocket-area">
       <img src="[[payloadImagePath]]" id="payloadImage" style="display: [[_payloadDisplay]];">
       <img src="./images/falcon-svg/[[buildBoosterImage(vehicleData,landingAttempt)]].svg" id="boosterImage">
       <paper-tooltip for="boosterImage" position="right">
-        <h2>Core [[coreSerial]] - [[vehicleData.rocket_name]] [[vehicleData.rocket_type]]</h2>
+        <h2>Core [[vehicleData.first_stage.cores.0.core_serial]] - [[vehicleData.rocket_name]] [[vehicleData.rocket_type]]</h2>
         <ul>
           <li>Reusable: [[isReusable(landingAttempt)]]</li>
         </ul>
@@ -39,19 +37,15 @@
            },
            payloadType: {
              type: String,
-             reflectToAttribute: true
+             computed: '_getPayloadType(vehicleData)'
            },
            landingAttempt: {
              type: Boolean,
-             reflectToAttribute: true
+             computed: 'hasLanding(vehicleData)'
            },
            isDragon: {
              type: Boolean,
              computed: '_isPayloadDragon(payloadType)'
-           },
-           coreSerial: {
-             type: String,
-             reflectToAttribute: true
            },
            payloadImagePath: {
              type: String,
@@ -66,6 +60,10 @@
 
        vehicleDataString(data) {
          return JSON.stringify(data);
+       }
+
+       hasLanding(data) {
+         return (data.first_stage.cores[0].landing_type != null && data.first_stage.cores[0].landing_type != "Ocean");
        }
 
        buildBoosterImage(vehicleData, landingAttempt){
@@ -92,6 +90,10 @@
          if (vehicle.rocket_id == 'falcon1') {
            return 'none';
          } else return 'block';
+       }
+
+       _getPayloadType(data) {
+         return data.second_stage.payloads[0].payload_type;
        }
 
        _isPayloadDragon(_payloadType) {

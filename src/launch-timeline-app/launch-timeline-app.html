@@ -3,6 +3,7 @@
 <link rel="import" href="../../bower_components/polymer/lib/elements/dom-repeat.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../spacex-launch/spacex-launch.html">
+<link rel="import" href="../mission-info/mission-info.html">
 
 <dom-module id="launch-timeline-app">
   <template>
@@ -10,7 +11,7 @@
 
     <iron-ajax
         auto
-        url="https://api.spacexdata.com/v1/launches"
+        url="https://api.spacexdata.com/v2/launches"
         handle-as="json"
         last-response="{{launches}}"
         >
@@ -38,7 +39,8 @@
         <spacex-launch launch-data="[[launch]]"></spacex-launch>
       </template>
     </div>
-
+    <div class="scrim"></div>
+    <mission-info launch-data="[[_activeLaunch]]"></mission-info>
   </template>
 
   <script>
@@ -59,6 +61,9 @@
           },
           yearFilter: {
             type: String
+          },
+          _activeLaunch: {
+            type: Object
           }
         };
       }
@@ -87,6 +92,21 @@
       ready() {
         super.ready();
         this.shadowRoot.querySelector("#yearSelect").dispatchEvent(new Event('change'));
+        let infoPane = this.shadowRoot.querySelector('mission-info');
+        let scrim = this.shadowRoot.querySelector('.scrim')
+        this.shadowRoot.querySelector('dom-repeat').addEventListener('dom-change', () => {
+          this.shadowRoot.querySelectorAll('spacex-launch').forEach((el, i, list) => {
+            el.addEventListener('click', (e) => {
+              this._activeLaunch = e.target.launchData;
+              infoPane.showPane();
+              scrim.classList.add('visible')
+            });
+          });
+        });
+        scrim.addEventListener('click', (e) => {
+          infoPane.hidePane();
+          scrim.classList.remove('visible');
+        });
       }
     }
 
