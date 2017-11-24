@@ -1,0 +1,111 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/lib/elements/dom-if.html">
+
+<dom-module id="mission-info">
+  <template>
+    <link rel="stylesheet" href="[[importPath]]/mission-info.css">
+    <div class="top-bar">
+      <h1>[[launchData.rocket.second_stage.payloads.0.payload_id]]</h1>
+      <img src="[[importPath]]/caret-down.svg" alt="Maximize/Minimize" id="maximizeButton" on-click="toggleMaximized">
+    </div>
+
+    <h2>[[customerString(launchData.rocket.second_stage.payloads.0)]]</h2>
+    <div class="badges">
+      <template is="dom-if" if="[[launchData.launch_success]]">
+        <span class="badge success">Launch</span>
+      </template>
+      <template is="dom-if" if="[[!launchData.launch_success]]">
+        <span class="badge failure">Launch</span>
+      </template>
+      <template is="dom-if" if="[[_landingAttempted(launchData.rocket.first_stage.cores.0.landing_type)]]">
+        <template is="dom-if" if="[[launchData.rocket.first_stage.cores.0.land_success]]">
+          <span class="badge success">Landing</span>
+        </template>
+        <template is="dom-if" if="[[!launchData.rocket.first_stage.cores.0.land_success]]">
+          <span class="badge failure">Landing</span>
+        </template>
+      </template>
+      <template is="dom-if" if="[[launchData.reused]]">
+        <span class="badge">Reused</span>
+      </template>
+    </div>
+    <img src$="[[launchData.links.mission_patch]]" alt$="[[launchData.rocket.second_stage.payloads.0.payload_id]] mission patch">
+    <p>[[launchData.details]]</p>
+    <h3>Payloads</h3>
+    <ul>
+      <template is="dom-repeat" items="[[launchData.rocket.second_stage.payloads]]" as="payload">
+        <li>[[payload.payload_id]]
+          <ul>
+            <li>[[customerString(payload)]]</li>
+            <li>Type: [[payload.payload_type]]</li>
+            <li>Mass: [[payload.payload_mass_kg]] kg ([[payload.payload_mass_lbs]] lbs)</li>
+            <li>Destination: [[payload.orbit]]</li>
+          </ul>
+        </li>
+      </template>
+    </ul>
+    <template is="dom-if" if="[[_landingAttempted(launchData.landing_type)]]">
+      <h3>Landing</h3>
+      <p>[[launchData.landing_type]] landing &mdash; [[launchData.landing_vehicle]]</p>
+    </template>
+    <h3>Links</h3>
+    <ul>
+      <li><a href$="[[launchData.links.reddit_campaign]]">Reddit Campaign</a></li>
+      <li><a href$="[[launchData.links.reddit_launch]]">Reddit Launch</a></li>
+      <li><a href$="[[launchData.links.reddit_recovery]]">Reddit Recovery</a></li>
+    </ul>
+  </template>
+  <script>
+    class MissionInfo extends Polymer.Element {
+      static get is() { return 'mission-info'; }
+      static get properties() {
+        return {
+          launchData: {
+            type: Object
+          },
+          visible: {
+            type: Boolean,
+            reflectToAttribute: true,
+            value: false
+          },
+          maximized: {
+            type: Boolean,
+            reflectToAttribute: true,
+            value: false
+          }
+        }
+      }
+      customerString(payload) {
+        return payload.customers.join('/');
+      }
+
+      showPane() {
+        this.visible = true;
+        this.scrollTop = 0;
+      }
+
+      hidePane() {
+        this.visible = false;
+      }
+
+      toggleMaximized(e) {
+        this.maximized = !this.maximized;
+      }
+
+      _landingAttempted(landingType) {
+        return landingType != null;
+      }
+
+      ready() {
+        super.ready();
+        this.addEventListener('dblclick', (e) => {
+          e.preventDefault();
+          this.maximized = !this.maximized;
+          console.log(this.maximized);
+        })
+      }
+    }
+
+    window.customElements.define(MissionInfo.is, MissionInfo);
+  </script>
+</dom-module>

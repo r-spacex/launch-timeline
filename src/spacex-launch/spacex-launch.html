@@ -5,13 +5,12 @@
 <dom-module id="spacex-launch">
   <template>
     <link rel="stylesheet" href="[[importPath]]/spacex-launch.css">
-    <p id="customer">[[customerString(launchData.rocket.second_stage.payloads.0)]]</p>
-    <time id="launchDatetime" datetime="[[launchData.launch_date_local]]"
-        title="[[launchData.launch_date_local]]"></time>
+    
     <div class="altitude" orbit$="{{launchData.rocket.second_stage.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}">[[launchData.launch_success]]</div>
     <launch-vehicle vehicle-data="[[launchData.rocket]]"></launch-vehicle>
     <p id="mission">[[launchData.rocket.second_stage.payloads.0.payload_id]]</p>
-    <h2>[[launchData.flight_number]]</h2>
+    <time id="launchDatetime" datetime="[[launchData.launch_date_local]]"
+        title="[[launchData.launch_date_local]]"></time>
   </template>
 
   <script>
@@ -77,6 +76,17 @@
 
        getSuccess(isSuccessful){
          return isSuccessful ? true : false;
+       }
+
+       getVehicle(data){
+         let vehicle = data.rocket.rocket_id;
+         let engine = data.rocket.rocket_type;
+
+         if(vehicle == "falcon1"){
+            return "falcon1";
+         } else {
+            return vehicle + engine;
+         }
        }
      }
 

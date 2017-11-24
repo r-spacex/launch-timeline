@@ -9,12 +9,64 @@
   border-radius: 16px;
   color: #444;
   display: block;
-  padding: 16px;
-  text-align: center;
+  height: 100vh;
   min-width: 150px;
   max-width: 150px;
+  padding: 16px;
+  position: relative;
+  text-align: center;
 }
 
 p{
   white-space: normal;
+}
+
+.altitude{
+  background: red;
+  height: 100%;
+  position: absolute;
+}
+
+#mission, #launchDatetime{
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#mission{
+  bottom: 7vh;
+  height: 4vh;
+  position: absolute;
+  width: 100%;
+}
+
+#launchDatetime{
+  bottom: 6.5vh;
+  position: absolute;
+
+  &[vehicle]:after{
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    width: 10px;
+    transform: translateX(-50%);
+  }
+  
+  &[vehicle="falcon1"]:after{
+    background: $falcon-1;
+  }
+
+  &[vehicle="falcon9v1.0"]:after{
+    background: $falcon-9v1;
+  }
+
+  &[vehicle="falcon9v1.1"]:after{
+    background: $falcon-9v11;
+  }
+
+  &[vehicle="falcon9FT"]:after{
+    background: $falcon-9FT;
+  }
 }

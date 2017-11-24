@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
 * {
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -399,126 +398,109 @@ template {
   display: none; }
 
 :host {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0 auto;
-  max-height: 100vh;
-  overflow-y: hidden;
-  padding: 0 16px;
-  width: auto;
-  white-space: nowrap; }
-
-#elon {
-  box-sizing: border-box;
-  border-radius: 16px;
-  color: #444;
-  display: block;
-  min-width: 150px;
-  max-width: 150px;
   padding: 16px;
-  position: relative;
-  text-align: center; }
-  #elon img {
-    bottom: 13vh;
-    max-height: 15px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); }
-  #elon p {
-    bottom: 7vh;
-    height: 4vh;
-    position: absolute;
-    width: 100%;
-    left: 50%;
-    transform: translateX(-50%); }
-
-#timeline {
-  bottom: 3vh;
-  border-bottom: 1px solid #3569a4;
+  color: #444;
+  background-color: white;
+  border-top: 1px solid #ddd;
   position: absolute;
-  width: 100%;
-  z-index: 10; }
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  overflow-y: auto;
+  transform: translate(0, 50vh);
+  will-change: transform;
+  transition: transform 0.3s ease-in, top 0.3s ease-in; }
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-    #timeline {
+    :host {
+      border-top-width: 0.75px; } }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    :host {
+      border-top-width: 0.5px; } }
+  @media (min-width: 820px) {
+    :host {
+      top: 0;
+      left: auto;
+      bottom: 0;
+      right: 0;
+      width: 320px;
+      transition: transform 0.3s ease-in;
+      transform: translate(355px, 0);
+      border-left: 1px solid #ddd; }
+      :host #maximizeButton {
+        display: none; } }
+  @media (min-width: 820px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 820px) and (min-resolution: 144dpi) {
+    :host {
+      border-left-width: 0.75px; } }
+  @media (min-width: 820px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 820px) and (min-resolution: 192dpi) {
+    :host {
+      border-left-width: 0.5px; } }
+
+#maximizeButton {
+  width: 24px;
+  will-change: transform;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease; }
+
+:host([visible]) {
+  transform: translate(0, 0); }
+
+:host([maximized]) #maximizeButton {
+  transform: rotate(180deg); }
+
+@media (max-width: 819px) {
+  :host([visible][maximized]) {
+    top: 0; } }
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ddd; }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .top-bar {
       border-bottom-width: 0.75px; } }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    #timeline {
+    .top-bar {
       border-bottom-width: 0.5px; } }
-  #timeline:before {
-    content: "Timeline";
-    left: 0;
-    position: absolute;
-    top: -20px; }
+  .top-bar h1 {
+    font-weight: 600;
+    margin: 0;
+    flex-grow: 1; }
+
+h2 {
+  font-weight: 600;
+  color: #888;
+  font-size: 18px;
+  margin-top: 8px; }
+
+p {
+  white-space: normal;
+  line-height: 1.4; }
+
+.badges {
+  margin-bottom: 16px; }
+
+.badge {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 16px;
+  color: white;
+  font-size: 12px;
+  background-color: #3569a4; }
+
+.badge.success {
+  background-color: #0c0; }
+
+.badge.failure {
+  background-color: #c00; }
 
 .scroll-area {
-  align-items: flex-end;
-  display: flex;
-  flex-grow: 1;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch; }
-  .scroll-area .altitude-line {
-    border-bottom: 1px solid #3569a4;
-    position: absolute;
-    width: 100%;
-    z-index: 10; }
-    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-      .scroll-area .altitude-line {
-        border-bottom-width: 0.75px; } }
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-      .scroll-area .altitude-line {
-        border-bottom-width: 0.5px; } }
-    .scroll-area .altitude-line:before {
-      left: 0;
-      position: absolute;
-      top: -20px; }
-    .scroll-area .altitude-line:after {
-      left: 0;
-      position: absolute;
-      top: 4px; }
-    .scroll-area .altitude-line#gto {
-      top: 10%; }
-      .scroll-area .altitude-line#gto:before {
-        content: "Geostationary Transfer Orbit"; }
-      .scroll-area .altitude-line#gto:after {
-        content: "37,500 km"; }
-    .scroll-area .altitude-line#leo {
-      top: 18%; }
-      .scroll-area .altitude-line#leo:before {
-        content: "Low Earth Orbit"; }
-      .scroll-area .altitude-line#leo:after {
-        content: "160 - 2,000 km"; }
-    .scroll-area .altitude-line#karman {
-      top: 26%; }
-      .scroll-area .altitude-line#karman:before {
-        content: "K├írm├ín Line"; }
-      .scroll-area .altitude-line#karman:after {
-        content: "100 km"; }
+  padding: 16px;
+  overflow-y: auto; }
 
-header {
-  align-items: center;
-  display: flex !important;
-  flex-direction: row; }
-  header select, header input {
-    font-family: inherit; }
+img {
+  width: 40%; }
 
-header h2 {
-  flex-grow: 1; }
-
-.scrim {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-  opacity: 0;
-  z-index: 3;
-  transition: opacity 0.3s ease; }
-
-.scrim.visible {
-  display: block;
-  opacity: 1; }
-
-/*# sourceMappingURL=launch-timeline-app.css.map */
+/*# sourceMappingURL=mission-info.css.map */

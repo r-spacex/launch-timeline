@@ -1,0 +1,116 @@
+//Basics Patterns and colors
+@import "_patterns";
+
+//normalization CSS
+@import "_norms";
+
+$breakpoint-desktop: 820px;
+
+:host {
+  padding: 16px;
+  color: #444;
+  background-color: white;
+  @include thin-border(top, solid, #ddd);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  overflow-y: auto;
+  transform: translate(0, 50vh);
+  will-change: transform;
+  transition: transform 0.3s ease-in, top 0.3s ease-in;
+  @media (min-width: $breakpoint-desktop) {
+    top: 0;
+    left: auto;
+    bottom: 0;
+    right: 0;
+    width: 320px;
+    transition: transform 0.3s ease-in;
+    transform: translate(355px, 0);
+    #maximizeButton {
+      display: none;
+    }
+    @include thin-border(left, solid, #ddd);
+  }
+}
+
+#maximizeButton {
+  width: 24px;
+  will-change: transform;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
+
+:host([visible]) {
+  transform: translate(0, 0);
+}
+
+:host([maximized]) {
+  #maximizeButton {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: ($breakpoint-desktop - 1px)) {
+  :host([visible][maximized]) {
+    top: 0;
+  }
+}
+
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 8px;
+  @include thin-border(bottom, solid, #ddd);
+  h1 {
+    font-weight: 600;
+    margin: 0;
+    flex-grow: 1;
+  }
+}
+
+h2 {
+  font-weight: 600;
+  color: #888;
+  font-size: 18px;
+  margin-top: 8px;
+}
+
+p {
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.badges {
+  margin-bottom: 16px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 16px;
+  color: white;
+  font-size: 12px;
+  background-color: $spacex-blue;
+}
+
+.badge.success {
+  background-color: #0c0;
+}
+
+.badge.failure {
+  background-color: #c00;
+}
+
+.scroll-area {
+  padding: 16px;
+  overflow-y: auto;
+}
+
+img {
+  width: 40%;
+}

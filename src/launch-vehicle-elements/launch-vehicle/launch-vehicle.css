@@ -398,7 +398,11 @@ template {
   display: none; }
 
 :host {
-  display: inline-block; }
+  display: inline-block;
+  position: absolute;
+  bottom: 13vh;
+  left: 50%;
+  transform: translateX(-50%); }
 
 #payloadImage {
   margin-bottom: -7px;

@@ -21,14 +21,43 @@
     border-radius: 16px;
     color: #444;
     display: block;
-    padding: 16px;
-    text-align: center;
     min-width: 150px;
     max-width: 150px;
+    padding: 16px;
+    position: relative;
+    text-align: center;
 
     img{
+      bottom: 13vh;
       max-height: 15px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
+
+    p{
+      bottom: 7vh;
+      height: 4vh;
+      position: absolute;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+}
+
+#timeline{
+  bottom: 3vh;
+  @include thin-border(bottom, solid, $spacex-blue);
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+
+  &:before{
+    content: "Timeline";
+    left: 0;
+    position: absolute;
+    top: -20px;
+  }
 }
 
 .scroll-area {
@@ -42,6 +71,7 @@
     @include thin-border(bottom, solid, $spacex-blue);
     position: absolute;
     width: 100%;
+    z-index: 10;
 
     &:before{
       left: 0;
@@ -68,7 +98,7 @@
     }
 
     &#leo{
-      top: 20%;
+      top: 18%;
 
       &:before{
         content: "Low Earth Orbit";
@@ -80,10 +110,10 @@
     }
 
     &#karman{
-      top:30%;
+      top:26%;
 
       &:before{
-        content: "Karman Line";
+        content: "Kármán Line";
       }
 
       &:after{
