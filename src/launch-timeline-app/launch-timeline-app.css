@@ -544,7 +544,22 @@ header h2 {
     text-align: center;
     font-size: 3rem; }
   #loader.hide {
-    display: none; }
+    animation: fadeout 1s;
+    -webkit-animation: fadeout 1s;
+    /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards; }
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes fadeout {
+  from {
+    display: block;
+    visibility: visible;
+    opacity: 1; }
+  to {
+    display: none;
+    visibility: hidden;
+    opacity: 0; } }
 
 #container {
   height: 1vh;

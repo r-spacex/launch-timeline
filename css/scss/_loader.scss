@@ -17,15 +17,31 @@ $color_5:#f5e983;
     top: 0;
     width: 100%;
     z-index: 10000;
-
+  
     p{
       text-align: center;
       font-size: 3rem;
     }
 
     &.hide{
-      display: none;
+      animation: fadeout 1s ;
+	    -webkit-animation: fadeout 1s ; /* Chrome, Safari, Opera */
+	    animation-fill-mode: forwards;
+	    -webkit-animation-fill-mode: forwards;   
     }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes fadeout {
+  from {
+	  display:block;
+    visibility:visible;
+    opacity: 1;}
+  to {
+	  display:none;
+  	visibility:hidden;
+    opacity:0;
+  }
 }
 
 #container {
