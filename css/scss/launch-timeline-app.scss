@@ -28,7 +28,7 @@
     text-align: center;
 
     img{
-      bottom: 13vh;
+      bottom: 18vh;
       max-height: 15px;
       position: absolute;
       left: 50%;
@@ -36,7 +36,7 @@
     }
 
     p{
-      bottom: 7vh;
+      bottom: 11vh;
       height: 4vh;
       position: absolute;
       width: 100%;
@@ -63,8 +63,11 @@
 .scroll-area {
   align-items: flex-end;
   display: flex;
-  flex-grow: 1;
+  flex-wrap: nowrap;
+  height: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch; //iOS Momentum Scrolling
 
   .altitude-line{
@@ -153,3 +156,7 @@ header h2 {
   display: block;
   opacity: 1;
 }
+
+
+//Loader Styling
+@import "_loader";

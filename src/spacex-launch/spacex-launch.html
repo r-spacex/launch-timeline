@@ -6,11 +6,12 @@
   <template>
     <link rel="stylesheet" href="[[importPath]]/spacex-launch.css">
     
-    <div class="altitude" orbit$="{{launchData.rocket.second_stage.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}">[[launchData.launch_success]]</div>
+    <div id="altitude" orbit$="{{launchData.rocket.second_stage.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}"></div>
     <launch-vehicle vehicle-data="[[launchData.rocket]]"></launch-vehicle>
     <p id="mission">[[launchData.rocket.second_stage.payloads.0.payload_id]]</p>
     <time id="launchDatetime" datetime="[[launchData.launch_date_local]]"
-        title="[[launchData.launch_date_local]]"></time>
+                              title="[[launchData.launch_date_local]]"
+                              vehicle$="[[getVehicle(launchData)]]"></time>
   </template>
 
   <script>
@@ -43,6 +44,7 @@
          super.ready();
          this.render(this.launchData, this);
        }
+
 
        fetchData(launchNum, callback) {
          fetch(`https://v2-test.herokuapp.com/v2/launches?flight_number=${launchNum}`).then((res) => {

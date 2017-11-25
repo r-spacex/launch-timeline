@@ -14,7 +14,7 @@
         url="https://api.spacexdata.com/v2/launches"
         handle-as="json"
         last-response="{{launches}}"
-        >
+        on-response="hideLoader">
     </iron-ajax>
 
     <header>
@@ -42,6 +42,16 @@
     </div>
     <div class="scrim"></div>
     <mission-info launch-data="[[_activeLaunch]]"></mission-info>
+    <div id="loader">
+      <div id='container'>
+        <div class='triangle'></div>
+        <div class='triangle'></div>
+        <div class='triangle'></div>
+        <div class='triangle'></div>
+        <div class='triangle'></div>
+      </div>
+      <p>Preparing to launch...</p>
+    </div>
   </template>
 
   <script>
@@ -88,6 +98,11 @@
             return launch.launch_year == year;
           }
         }
+      }
+
+      hideLoader(){
+        let loader = this.shadowRoot.querySelector('#loader');
+        loader.classList.add('hide');
       }
 
       ready() {

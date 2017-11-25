@@ -398,37 +398,38 @@ template {
   display: none; }
 
 :host {
+  align-content: flex-end;
+  align-items: stretch;
   box-sizing: border-box;
-  border-radius: 16px;
   color: #444;
-  display: block;
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
   height: 100vh;
-  min-width: 150px;
-  max-width: 150px;
   padding: 16px;
   position: relative;
-  text-align: center; }
+  text-align: center;
+  width: 200px; }
 
 p {
   white-space: normal; }
 
 .altitude {
-  height: 100%;
-  position: absolute; }
-
-#mission, #launchDatetime {
-  left: 50%;
-  transform: translateX(-50%); }
+  background: red;
+  order: 1;
+  margin: 0 auto;
+  width: 20%; }
 
 #mission {
   bottom: 7vh;
-  height: 4vh;
-  position: absolute;
+  height: 3.5vh;
+  order: 3;
   width: 100%; }
 
 #launchDatetime {
-  bottom: 6.5vh;
-  position: absolute; }
+  height: 10vh;
+  order: 4;
+  width: 100%; }
   #launchDatetime[vehicle]:after {
     border-radius: 50%;
     content: "";
@@ -437,7 +438,7 @@ p {
     position: absolute;
     left: 50%;
     width: 10px;
-    transform: translateX(-50%); }
+    transform: translateX(-50%) translateY(10px); }
   #launchDatetime[vehicle="falcon1"]:after {
     background: #446e88; }
   #launchDatetime[vehicle="falcon9v1.0"]:after {
@@ -446,5 +447,3 @@ p {
     background: #f4a281; }
   #launchDatetime[vehicle="falcon9FT"]:after {
     background: #8c84a6; }
-
-/*# sourceMappingURL=spacex-launch.css.map */
