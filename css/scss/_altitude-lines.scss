@@ -1,0 +1,18 @@
+.altitude-line{
+    @include thin-border(bottom, solid, $spacex-blue);
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+
+    &#gto{
+      top: 10%;
+    }
+
+    &#leo{
+      top: 18%;
+    }
+
+    &#karman{
+      top:26%;
+    }
+  }

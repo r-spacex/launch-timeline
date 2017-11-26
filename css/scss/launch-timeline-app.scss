@@ -21,6 +21,7 @@
     border-radius: 16px;
     color: #444;
     display: block;
+    height: 100vh;
     min-width: 150px;
     max-width: 150px;
     padding: 16px;
@@ -28,7 +29,7 @@
     text-align: center;
 
     img{
-      bottom: 13vh;
+      bottom: 18vh;
       max-height: 15px;
       position: absolute;
       left: 50%;
@@ -36,7 +37,7 @@
     }
 
     p{
-      bottom: 7vh;
+      bottom: 11vh;
       height: 4vh;
       position: absolute;
       width: 100%;
@@ -63,14 +64,17 @@
 .scroll-area {
   align-items: flex-end;
   display: flex;
-  flex-grow: 1;
+  flex-wrap: nowrap;
+  height: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch; //iOS Momentum Scrolling
 
   .altitude-line{
     @include thin-border(bottom, solid, $spacex-blue);
     position: absolute;
-    width: 100%;
+    width: 150px;
     z-index: 10;
 
     &:before{
@@ -154,3 +158,7 @@ header h2 {
   display: block;
   opacity: 1;
 }
+
+
+//Loader Styling
+@import "_loader";

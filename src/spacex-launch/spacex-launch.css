@@ -398,37 +398,59 @@ template {
   display: none; }
 
 :host {
+  align-content: flex-end;
+  align-items: stretch;
   box-sizing: border-box;
-  border-radius: 16px;
   color: #444;
-  display: block;
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
   height: 100vh;
-  min-width: 150px;
-  max-width: 150px;
   padding: 16px;
   position: relative;
-  text-align: center; }
+  text-align: center;
+  width: 150px; }
+
+.altitude-line {
+  border-bottom: 1px solid #3569a4;
+  position: absolute;
+  width: 100%;
+  z-index: 10; }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    .altitude-line {
+      border-bottom-width: 0.75px; } }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .altitude-line {
+      border-bottom-width: 0.5px; } }
+  .altitude-line#gto {
+    top: 10%; }
+  .altitude-line#leo {
+    top: 18%; }
+  .altitude-line#karman {
+    top: 26%; }
 
 p {
   white-space: normal; }
 
-.altitude {
-  height: 100%;
-  position: absolute; }
-
-#mission, #launchDatetime {
-  left: 50%;
-  transform: translateX(-50%); }
+#altitude {
+  background: red;
+  height: 0;
+  margin: 0 auto;
+  order: 1;
+  width: 20%;
+  transition: height 1s;
+  transition-delay: 0.5s; }
 
 #mission {
   bottom: 7vh;
-  height: 4vh;
-  position: absolute;
+  height: 3.5vh;
+  order: 3;
   width: 100%; }
 
 #launchDatetime {
-  bottom: 6.5vh;
-  position: absolute; }
+  height: 10vh;
+  order: 4;
+  width: 100%; }
   #launchDatetime[vehicle]:after {
     border-radius: 50%;
     content: "";
@@ -437,7 +459,7 @@ p {
     position: absolute;
     left: 50%;
     width: 10px;
-    transform: translateX(-50%); }
+    transform: translateX(-50%) translateY(10px); }
   #launchDatetime[vehicle="falcon1"]:after {
     background: #446e88; }
   #launchDatetime[vehicle="falcon9v1.0"]:after {
@@ -446,5 +468,3 @@ p {
     background: #f4a281; }
   #launchDatetime[vehicle="falcon9FT"]:after {
     background: #8c84a6; }
-
-/*# sourceMappingURL=spacex-launch.css.map */

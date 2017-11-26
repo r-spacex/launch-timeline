@@ -413,19 +413,20 @@ template {
   border-radius: 16px;
   color: #444;
   display: block;
+  height: 100vh;
   min-width: 150px;
   max-width: 150px;
   padding: 16px;
   position: relative;
   text-align: center; }
   #elon img {
-    bottom: 13vh;
+    bottom: 18vh;
     max-height: 15px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%); }
   #elon p {
-    bottom: 7vh;
+    bottom: 11vh;
     height: 4vh;
     position: absolute;
     width: 100%;
@@ -453,13 +454,16 @@ template {
 .scroll-area {
   align-items: flex-end;
   display: flex;
-  flex-grow: 1;
+  flex-wrap: nowrap;
+  height: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
   -webkit-overflow-scrolling: touch; }
   .scroll-area .altitude-line {
     border-bottom: 1px solid #3569a4;
     position: absolute;
-    width: 100%;
+    width: 150px;
     z-index: 10; }
     @media (min-resolution: 1.5dppx) {
       .scroll-area .altitude-line {
@@ -521,4 +525,143 @@ header h2 {
   display: block;
   opacity: 1; }
 
-/*# sourceMappingURL=launch-timeline-app.css.map */
+#loader {
+  background: #828282;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #828282 0%, #d3d3d3 23%, #ffffff 37%, #ffffff 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #828282 0%, #d3d3d3 23%, #ffffff 37%, #ffffff 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #828282 0%, #d3d3d3 23%, #ffffff 37%, #ffffff 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#828282', endColorstr='#ffffff',GradientType=0 );
+  /* IE6-9 */
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000; }
+  #loader p {
+    text-align: center;
+    font-size: 3rem; }
+  #loader.hide {
+    animation: fadeout 1s;
+    -webkit-animation: fadeout 1s;
+    /* Chrome, Safari, Opera */
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards; }
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes fadeout {
+  from {
+    display: block;
+    visibility: visible;
+    opacity: 1; }
+  to {
+    display: none;
+    visibility: hidden;
+    opacity: 0; } }
+
+#container {
+  height: 1vh;
+  width: 100%;
+  margin: 360px auto 0 auto;
+  padding: 50px 0; }
+
+triangleCon {
+  height: 600px; }
+
+.triangle {
+  width: 0px;
+  height: 0px;
+  opacity: 0.75;
+  margin: auto;
+  position: relative;
+  animation: enlarge_1 2s infinite; }
+
+.triangle:nth-child(2) {
+  animation: enlarge_2 2s infinite;
+  animation-delay: 0.2s; }
+
+.triangle:nth-child(3) {
+  animation: enlarge_3 2s infinite;
+  animation-delay: 0.4s; }
+
+.triangle:nth-child(4) {
+  animation: enlarge_4 2s infinite;
+  animation-delay: 0.6s; }
+
+.triangle:nth-child(5) {
+  animation: enlarge_5 2s infinite;
+  animation-delay: 0.8s; }
+
+@keyframes enlarge_1 {
+  from {
+    opcatiy: 1;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 4px solid #90cdf2;
+    margin-top: 0px; }
+  to {
+    opacity: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 300px solid #90cdf2;
+    margin-top: -300px; } }
+
+@keyframes enlarge_2 {
+  from {
+    opcatiy: 1;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 4px solid #d390f2;
+    margin-top: -4px; }
+  to {
+    opacity: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 300px solid #d390f2;
+    margin-top: -300px; } }
+
+@keyframes enlarge_3 {
+  from {
+    opcatiy: 1;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 4px solid #ea9071;
+    margin-top: -4px; }
+  to {
+    opacity: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 300px solid #ea9071;
+    margin-top: -300px; } }
+
+@keyframes enlarge_4 {
+  from {
+    opcatiy: 1;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 4px solid #f2c390;
+    margin-top: -4px; }
+  to {
+    opacity: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 300px solid #f2c390;
+    margin-top: -300px; } }
+
+@keyframes enlarge_5 {
+  from {
+    opcatiy: 1;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    border-bottom: 4px solid #f5e983;
+    margin-top: -4px; }
+  to {
+    opacity: 0;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 300px solid #f5e983;
+    margin-top: -300px; } }

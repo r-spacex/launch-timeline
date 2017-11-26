@@ -5,43 +5,47 @@
 @import "_norms";
 
 :host {
+  align-content: flex-end;  
+  align-items: stretch;
   box-sizing: border-box;
-  border-radius: 16px;
   color: #444;
-  display: block;
+  display: flex;
+  flex: 0 0 auto; 
+  flex-wrap: wrap;
   height: 100vh;
-  min-width: 150px;
-  max-width: 150px;
   padding: 16px;
   position: relative;
   text-align: center;
+  width: 150px;
 }
+
+@import "_altitude-lines"; 
 
 p{
   white-space: normal;
 }
 
-.altitude{
-  //background: red;
-  height: 100%;
-  position: absolute;
-}
-
-#mission, #launchDatetime{
-  left: 50%;
-  transform: translateX(-50%);
+#altitude{
+  background: red;
+  height: 0;
+  margin: 0 auto;
+  order: 1;
+  width: 20%;
+  transition: height 1s;
+  transition-delay: 0.5s;
 }
 
 #mission{
   bottom: 7vh;
-  height: 4vh;
-  position: absolute;
+  height: 3.5vh;
+  order: 3;  
   width: 100%;
 }
 
 #launchDatetime{
-  bottom: 6.5vh;
-  position: absolute;
+  height: 10vh;
+  order: 4;
+  width: 100%;  
 
   &[vehicle]:after{
     border-radius: 50%;
@@ -51,7 +55,7 @@ p{
     position: absolute;
     left: 50%;
     width: 10px;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(10px);
   }
 
   &[vehicle="falcon1"]:after{

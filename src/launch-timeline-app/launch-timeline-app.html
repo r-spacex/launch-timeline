@@ -14,7 +14,7 @@
         url="https://api.spacexdata.com/v2/launches"
         handle-as="json"
         last-response="{{launches}}"
-        >
+        on-response="hideLoader">
     </iron-ajax>
 
     <header>
@@ -28,20 +28,30 @@
       </select>
     </header>
     <div class="scroll-area">
-      <div class="altitude-line" id="gto"/></div>
-      <div class="altitude-line" id="leo"/></div>
-      <div class="altitude-line" id="karman"/></div>
       <div id="elon">
+        <div class="altitude-line" id="gto"/></div>
+        <div class="altitude-line" id="leo"/></div>
+        <div class="altitude-line" id="karman"/></div>
         <img src="./images/savior.svg" />
         <p>Elon Musk</p>
       </div>
       <template is="dom-repeat" items="[[launches]]" as="launch" initialCount="20" filter="{{filterYear(yearFilter)}}">
-        <spacex-launch launch-data="[[launch]]"></spacex-launch>
+        <spacex-launch launch-data="[[launch]]" year$="{{launch.launch_year}}"></spacex-launch>
       </template>
       <div id="timeline"></div>
     </div>
     <div class="scrim"></div>
     <mission-info launch-data="[[_activeLaunch]]"></mission-info>
+    <div id="loader">
+      <div id='container'>
+        <div class='triangle'></div>
+        <div class='triangle'></div>
+        <div class='triangle'></div>
+        <div class='triangle'></div>
+        <div class='triangle'></div>
+      </div>
+      <p>Preparing to launch...</p>
+    </div>
   </template>
 
   <script>
@@ -88,6 +98,11 @@
             return launch.launch_year == year;
           }
         }
+      }
+
+      hideLoader(){
+        let loader = this.shadowRoot.querySelector('#loader');
+        loader.classList.add('hide');
       }
 
       ready() {
