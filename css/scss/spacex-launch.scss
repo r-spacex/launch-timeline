@@ -5,12 +5,12 @@
 @import "_norms";
 
 :host {
-  align-content: flex-end;  
+  align-content: flex-end;
   align-items: stretch;
   box-sizing: border-box;
   color: #444;
   display: flex;
-  flex: 0 0 auto; 
+  flex: 0 0 auto;
   flex-wrap: wrap;
   height: 100vh;
   padding: 16px;
@@ -19,18 +19,20 @@
   width: 150px;
 }
 
-@import "_altitude-lines"; 
+@import "_altitude-lines";
 
 p{
   white-space: normal;
 }
 
 #altitude{
-  background: red;
+  background: rgba(red, 0.5);
   height: 0;
   margin: 0 auto;
+  margin-bottom: 8px;
   order: 1;
-  width: 20%;
+  width: 8px;
+  border-radius: 8px;
   transition: height 1s;
   transition-delay: 0.5s;
 }
@@ -38,14 +40,14 @@ p{
 #mission{
   bottom: 7vh;
   height: 3.5vh;
-  order: 3;  
+  order: 3;
   width: 100%;
 }
 
 #launchDatetime{
   height: 10vh;
   order: 4;
-  width: 100%;  
+  width: 100%;
 
   &[vehicle]:after{
     border-radius: 50%;

@@ -562,7 +562,6 @@ header h2 {
     display: none;
     visibility: hidden;
     opacity: 0; } }
-
 #container {
   height: 1vh;
   width: 100%;
@@ -609,7 +608,6 @@ triangleCon {
     border-right: 200px solid transparent;
     border-bottom: 300px solid #90cdf2;
     margin-top: -300px; } }
-
 @keyframes enlarge_2 {
   from {
     opcatiy: 1;
@@ -623,7 +621,6 @@ triangleCon {
     border-right: 200px solid transparent;
     border-bottom: 300px solid #d390f2;
     margin-top: -300px; } }
-
 @keyframes enlarge_3 {
   from {
     opcatiy: 1;
@@ -637,7 +634,6 @@ triangleCon {
     border-right: 200px solid transparent;
     border-bottom: 300px solid #ea9071;
     margin-top: -300px; } }
-
 @keyframes enlarge_4 {
   from {
     opcatiy: 1;
@@ -651,7 +647,6 @@ triangleCon {
     border-right: 200px solid transparent;
     border-bottom: 300px solid #f2c390;
     margin-top: -300px; } }
-
 @keyframes enlarge_5 {
   from {
     opcatiy: 1;
@@ -665,3 +660,5 @@ triangleCon {
     border-right: 200px solid transparent;
     border-bottom: 300px solid #f5e983;
     margin-top: -300px; } }
+
+/*# sourceMappingURL=launch-timeline-app.css.map */

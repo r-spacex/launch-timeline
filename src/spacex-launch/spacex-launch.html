@@ -5,7 +5,7 @@
 <dom-module id="spacex-launch">
   <template>
     <link rel="stylesheet" href="[[importPath]]/spacex-launch.css">
-    
+
     <div class="altitude-line" id="gto"/></div>
     <div class="altitude-line" id="leo"/></div>
     <div class="altitude-line" id="karman"/></div>
@@ -54,9 +54,9 @@
 
         switch(orbit){
           case "leo":
-          case "iss":      
+          case "iss":
           case "polar":
-          case "sso":                                                    
+          case "sso":
             visualOrbit = "leo";
             break;
           case "gto":
@@ -71,8 +71,9 @@
 
         setTimeout(function(){
           let altitudeOffset = targetAltitudeElement.getBoundingClientRect().top;
+          targetAltitudeElement.getBoundingClientRect().mar
           let vehicleOffset = vehicle.getBoundingClientRect().top;
-          let altitudeHeight = vehicleOffset - altitudeOffset;
+          let altitudeHeight = vehicleOffset - altitudeOffset - 8;
           altitudeElement.style.height = altitudeHeight + "px";
           console.log(altitudeHeight);
         }, 1000);

@@ -416,10 +416,10 @@ template {
   position: absolute;
   width: 100%;
   z-index: 10; }
-  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  @media (min-resolution: 1.5dppx) {
     .altitude-line {
       border-bottom-width: 0.75px; } }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  @media (min-resolution: 2dppx) {
     .altitude-line {
       border-bottom-width: 0.5px; } }
   .altitude-line#gto {
@@ -433,11 +433,13 @@ p {
   white-space: normal; }
 
 #altitude {
-  background: red;
+  background: rgba(255, 0, 0, 0.5);
   height: 0;
   margin: 0 auto;
+  margin-bottom: 8px;
   order: 1;
-  width: 20%;
+  width: 8px;
+  border-radius: 8px;
   transition: height 1s;
   transition-delay: 0.5s; }
 
@@ -468,3 +470,5 @@ p {
     background: #f4a281; }
   #launchDatetime[vehicle="falcon9FT"]:after {
     background: #8c84a6; }
+
+/*# sourceMappingURL=spacex-launch.css.map */
