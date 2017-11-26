@@ -28,15 +28,15 @@
       </select>
     </header>
     <div class="scroll-area">
-      <div class="altitude-line" id="gto"/></div>
-      <div class="altitude-line" id="leo"/></div>
-      <div class="altitude-line" id="karman"/></div>
       <div id="elon">
+        <div class="altitude-line" id="gto"/></div>
+        <div class="altitude-line" id="leo"/></div>
+        <div class="altitude-line" id="karman"/></div>
         <img src="./images/savior.svg" />
         <p>Elon Musk</p>
       </div>
       <template is="dom-repeat" items="[[launches]]" as="launch" initialCount="20" filter="{{filterYear(yearFilter)}}">
-        <spacex-launch launch-data="[[launch]]"></spacex-launch>
+        <spacex-launch launch-data="[[launch]]" year$="{{launch.launch_year}}"></spacex-launch>
       </template>
       <div id="timeline"></div>
     </div>

@@ -21,6 +21,7 @@
     border-radius: 16px;
     color: #444;
     display: block;
+    height: 100vh;
     min-width: 150px;
     max-width: 150px;
     padding: 16px;
@@ -73,7 +74,7 @@
   .altitude-line{
     @include thin-border(bottom, solid, $spacex-blue);
     position: absolute;
-    width: 100%;
+    width: 150px;
     z-index: 10;
 
     &:before{

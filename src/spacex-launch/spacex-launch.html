@@ -6,6 +6,11 @@
   <template>
     <link rel="stylesheet" href="[[importPath]]/spacex-launch.css">
     
+    <div class="altitude-line" id="gto"/></div>
+    <div class="altitude-line" id="leo"/></div>
+    <div class="altitude-line" id="karman"/></div>
+
+
     <div id="altitude" orbit$="{{launchData.rocket.second_stage.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}"></div>
     <launch-vehicle vehicle-data="[[launchData.rocket]]"></launch-vehicle>
     <p id="mission">[[launchData.rocket.second_stage.payloads.0.payload_id]]</p>
@@ -40,10 +45,38 @@
          this.launchData = _launchData;
        }
 
-       ready() {
-         super.ready();
-         this.render(this.launchData, this);
-       }
+      ready() {
+        super.ready();
+        this.render(this.launchData, this);
+        var visualOrbit;
+        let altitudeElement = this.shadowRoot.querySelector('#altitude');
+        let orbit = altitudeElement.getAttribute("orbit").toLowerCase();
+
+        switch(orbit){
+          case "leo":
+          case "iss":      
+          case "polar":
+          case "sso":                                                    
+            visualOrbit = "leo";
+            break;
+          case "gto":
+          case "es-l1":
+            visualOrbit = "gto";
+            break;
+        }
+
+
+        let targetAltitudeElement = this.shadowRoot.querySelector('#' + visualOrbit);
+        let vehicle = this.shadowRoot.querySelector('launch-vehicle');
+
+        setTimeout(function(){
+          let altitudeOffset = targetAltitudeElement.getBoundingClientRect().top;
+          let vehicleOffset = vehicle.getBoundingClientRect().top;
+          let altitudeHeight = vehicleOffset - altitudeOffset;
+          altitudeElement.style.height = altitudeHeight + "px";
+          console.log(altitudeHeight);
+        }, 1000);
+      }
 
 
        fetchData(launchNum, callback) {
