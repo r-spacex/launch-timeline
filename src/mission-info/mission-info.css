@@ -412,10 +412,10 @@ template {
   transform: translate(0, 50vh);
   will-change: transform;
   transition: transform 0.3s ease-in, top 0.3s ease-in; }
-  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  @media (min-resolution: 1.5dppx) {
     :host {
       border-top-width: 0.75px; } }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  @media (min-resolution: 2dppx) {
     :host {
       border-top-width: 0.5px; } }
   @media (min-width: 820px) {
@@ -430,10 +430,10 @@ template {
       border-left: 1px solid #ddd; }
       :host #maximizeButton {
         display: none; } }
-  @media (min-width: 820px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 820px) and (min-resolution: 144dpi) {
+  @media (min-width: 820px) and (min-resolution: 1.5dppx) {
     :host {
       border-left-width: 0.75px; } }
-  @media (min-width: 820px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 820px) and (min-resolution: 192dpi) {
+  @media (min-width: 820px) and (min-resolution: 2dppx) {
     :host {
       border-left-width: 0.5px; } }
 
@@ -458,10 +458,10 @@ template {
   align-items: center;
   padding-bottom: 8px;
   border-bottom: 1px solid #ddd; }
-  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  @media (min-resolution: 1.5dppx) {
     .top-bar {
       border-bottom-width: 0.75px; } }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  @media (min-resolution: 2dppx) {
     .top-bar {
       border-bottom-width: 0.5px; } }
   .top-bar h1 {

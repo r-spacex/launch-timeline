@@ -438,10 +438,10 @@ template {
   position: absolute;
   width: 100%;
   z-index: 10; }
-  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  @media (min-resolution: 1.5dppx) {
     #timeline {
       border-bottom-width: 0.75px; } }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  @media (min-resolution: 2dppx) {
     #timeline {
       border-bottom-width: 0.5px; } }
   #timeline:before {
@@ -461,10 +461,10 @@ template {
     position: absolute;
     width: 100%;
     z-index: 10; }
-    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    @media (min-resolution: 1.5dppx) {
       .scroll-area .altitude-line {
         border-bottom-width: 0.75px; } }
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @media (min-resolution: 2dppx) {
       .scroll-area .altitude-line {
         border-bottom-width: 0.5px; } }
     .scroll-area .altitude-line:before {
@@ -502,7 +502,8 @@ header {
     font-family: inherit; }
 
 header h2 {
-  flex-grow: 1; }
+  flex-grow: 1;
+  color: #fff; }
 
 .scrim {
   position: absolute;
