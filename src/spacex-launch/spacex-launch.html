@@ -75,7 +75,8 @@
           let vehicleOffset = vehicle.getBoundingClientRect().top;
           let altitudeHeight = vehicleOffset - altitudeOffset - 8;
           altitudeElement.style.height = altitudeHeight + "px";
-          console.log(altitudeHeight);
+          altitudeElement.style.marginBottom = "-" + (vehicle.getBoundingClientRect().top - altitudeElement.getBoundingClientRect().bottom - 16) + "px";          
+          console.log("Offset " + vehicleOffset);
         }, 1000);
       }
 

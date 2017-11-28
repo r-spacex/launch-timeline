@@ -7,16 +7,9 @@
 :host {
   display: inline-block;
   order: 2;
+  transform: scale(0.5);
+  transform-origin: center bottom;
   width: 100%;
-}
-
-#payloadImage{
-  margin-bottom: -7px;
-  z-index: 2;
-}
-
-#bootsterImage{
-  z-index: 1;
 }
 
 .rocket-area {
@@ -24,6 +17,16 @@
   display: flex;
   flex-direction: column;
   
+  #payloadImage{
+    margin-bottom: -7px;
+    z-index: 2;
+  }
+
+  #bootsterImage{
+    z-index: 1;
+  }
+
+
   --paper-tooltip-background: #fff;
   --paper-tooltip-text-color: #333;
   --paper-tooltip: {

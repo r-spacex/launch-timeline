@@ -399,7 +399,7 @@ template {
 
 :host {
   align-content: flex-end;
-  align-items: stretch;
+  align-items: flex-end;
   box-sizing: border-box;
   color: #444;
   display: flex;
@@ -470,5 +470,3 @@ p {
     background: #f4a281; }
   #launchDatetime[vehicle="falcon9FT"]:after {
     background: #8c84a6; }
-
-/*# sourceMappingURL=spacex-launch.css.map */
