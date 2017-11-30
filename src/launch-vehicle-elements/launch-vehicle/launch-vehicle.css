@@ -1,3 +1,4 @@
+/* compileDest = ./src/launch-vehicle-elements/launch-vehicle/launch-vehicle.css, life = 42 */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
 * {
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -410,10 +411,12 @@ template {
   flex-direction: column;
   --paper-tooltip-background: #fff;
   --paper-tooltip-text-color: #333;
-  --paper-tooltip-padding: 16px;
-  --paper-tooltip-border-radius: 8px;
-  --paper-tooltip-border: 0.5px solid #ddd;
-  --paper-tooltip-font-size: 1em; }
+  --paper-tooltip: {
+    padding: 16px;
+    border-radius: 8px;
+    border: 0.5px solid #ddd;
+    font-size: 1em;
+  }; }
   .rocket-area #payloadImage {
     margin-bottom: -7px;
     z-index: 2; }
@@ -425,3 +428,5 @@ paper-tooltip h2 {
   padding-bottom: 8px;
   border-bottom: 0.5px solid #ddd;
   font-weight: 600; }
+
+/*# sourceMappingURL=launch-vehicle.css.map */

@@ -1,3 +1,4 @@
+/* compileDest = ./src/spacex-launch/spacex-launch.css */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
 * {
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -470,3 +471,5 @@ p {
     background: #f4a281; }
   #launchDatetime[vehicle="falcon9FT"]:after {
     background: #8c84a6; }
+
+/*# sourceMappingURL=spacex-launch.css.map */

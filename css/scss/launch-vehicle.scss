@@ -1,3 +1,5 @@
+/* compileDest = ./src/launch-vehicle-elements/launch-vehicle/launch-vehicle.css, life = 42 */
+
 //Basics Patterns and colors
 @import "_patterns";
 
@@ -16,7 +18,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  
+
   #payloadImage{
     margin-bottom: -7px;
     z-index: 2;
