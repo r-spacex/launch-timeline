@@ -11,7 +11,11 @@
     <div class="altitude-line" id="karman"/></div>
 
 
-    <div id="altitude" orbit$="{{launchData.rocket.second_stage.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}"></div>
+    <div id="altitude" orbit$="{{launchData.rocket.second_stage.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}">
+      <svg class="triangle" preserveAspectRatio="none" viewBox="0 0 100 100">
+        <polygon points="100,100 52,0 48,0 0,100" ></polygon>
+      </svg>
+    </div>
     <launch-vehicle vehicle-data="[[launchData.rocket]]"></launch-vehicle>
     <p id="mission">[[launchData.rocket.second_stage.payloads.0.payload_id]]</p>
     <time id="launchDatetime" datetime="[[launchData.launch_date_local]]"
@@ -74,9 +78,13 @@
           targetAltitudeElement.getBoundingClientRect().mar
           let vehicleOffset = vehicle.getBoundingClientRect().top;
           let altitudeHeight = vehicleOffset - altitudeOffset - 8;
-          altitudeElement.style.height = altitudeHeight + "px";
+          if(altitudeElement.getAttribute("launchsuccess") != null)
+            altitudeElement.style.height = altitudeHeight + "px";
+          else
+            altitudeElement.style.height = (altitudeHeight/2) + "px";
+
           altitudeElement.style.marginBottom = "-" + (vehicle.getBoundingClientRect().top - altitudeElement.getBoundingClientRect().bottom - 16) + "px";          
-          console.log("Offset " + vehicleOffset);
+          console.log("Success " + altitudeElement.getAttribute("launchsuccess"));
         }, 1000);
       }
 

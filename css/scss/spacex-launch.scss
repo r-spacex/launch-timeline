@@ -28,15 +28,44 @@ p{
 }
 
 #altitude{
-  background: rgba(red, 0.5);
   height: 0;
   margin: 0 auto;
   margin-bottom: 8px;
   order: 1;
-  width: 8px;
-  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  width: 9px;
+  border-radius: 9px;
   transition: height 1s;
   transition-delay: 0.5s;
+
+  &:not([launchsuccess]){
+    &:before{
+      background-image: url('../../../images/explosion.svg');
+      background-repeat: no-repeat;
+      content: '';
+      display: block;
+      height: 25px;
+      position: absolute;
+      top: 0;
+      width: 25px;
+    }
+
+    .triangle {
+      polygon{
+        fill: red;       
+      }
+    }
+  }
+
+  svg{
+    width: 100%;
+    height: 100%;
+
+    polygon{
+      fill: $spacex-blue;       
+    }
+  }
 }
 
 #mission{
