@@ -11,7 +11,7 @@
     <div class="altitude-line" id="karman"/></div>
 
 
-    <div id="altitude" orbit$="{{launchData.rocket.second_stage.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}">
+    <div id="altitude" orbit$="{{launchData.rocket.second_stage.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}" payloadID$="{{launchData.rocket.second_stage.payloads.0.payload_id}}">
       <svg class="triangle" preserveAspectRatio="none" viewBox="0 0 100 100">
         <polygon points="100,100 52,0 48,0 0,100" ></polygon>
       </svg>
@@ -80,11 +80,29 @@
           let altitudeHeight = vehicleOffset - altitudeOffset - 8;
           if(altitudeElement.getAttribute("launchsuccess") != null)
             altitudeElement.style.height = altitudeHeight + "px";
-          else
-            altitudeElement.style.height = (altitudeHeight/2) + "px";
+          else{
+            //Hardcoding failure altitude for now
+            let payload = altitudeElement.getAttribute("payloadID");
+            console.log(payload);
+            
+            if(payload == "FalconSAT-2"){
+              altitudeElement.style.height = (altitudeHeight/7) + "px";
+            }
+            else if(payload == "DemoSAT"){
+              altitudeElement.style.height = (6*altitudeHeight/7) + "px";
+            }
+            else if(payload == "Trailblazer"){
+              altitudeElement.style.height = (9*altitudeHeight/10) + "px";
+            }
+            else if(payload == "SpaceX CRS-7"){
+              altitudeElement.style.height = (4*altitudeHeight/7) + "px";
+            }
+            else if(payload == "Amos-6"){
+              altitudeElement.style.height = 5 + "px";
+            }
+          }
 
           altitudeElement.style.marginBottom = "-" + (vehicle.getBoundingClientRect().top - altitudeElement.getBoundingClientRect().bottom - 16) + "px";          
-          console.log("Success " + altitudeElement.getAttribute("launchsuccess"));
         }, 1000);
       }
 
