@@ -11,10 +11,14 @@
     <div class="altitude-line" id="karman"/></div>
 
 
-    <div id="altitude" orbit$="{{launchData.rocket.second_stage.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}" payloadID$="{{launchData.rocket.second_stage.payloads.0.payload_id}}">
+    <div id="altitude" orbit$="{{launchData.rocket.second_stage.payloads.0.orbit}}" launchsuccess$="{{getSuccess(launchData.launch_success)}}" payloadID$="{{launchData.rocket.second_stage.payloads.0.payload_id}}" payloadType$="{{launchData.rocket.second_stage.payloads.0.payload_type}}">
       <svg class="triangle" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <polygon points="100,100 52,0 48,0 0,100" ></polygon>
+        <path d="M0,98 C0,100 100,100 100,98 L 52,0 48,0Z" />
       </svg>
+    </div>
+    <div id="landing" landingType$="{{launchData.rocket.first_stage.cores.0.landing_type}}" landingSuccess$="{{launchData.rocket.first_stage.cores.0.land_success}}">
+      <div id="landingPlatform"></div>
+      <div id="landingFalcon"></div>      
     </div>
     <launch-vehicle vehicle-data="[[launchData.rocket]]"></launch-vehicle>
     <p id="mission">[[launchData.rocket.second_stage.payloads.0.payload_id]]</p>
@@ -79,7 +83,7 @@
           let vehicleOffset = vehicle.getBoundingClientRect().top;
           let altitudeHeight = vehicleOffset - altitudeOffset - 8;
           if(altitudeElement.getAttribute("launchsuccess") != null)
-            altitudeElement.style.height = altitudeHeight + "px";
+            altitudeElement.style.height = altitudeHeight + 5 + "px";
           else{
             //Hardcoding failure altitude for now
             let payload = altitudeElement.getAttribute("payloadID");
@@ -98,7 +102,7 @@
               altitudeElement.style.height = (4*altitudeHeight/7) + "px";
             }
             else if(payload == "Amos-6"){
-              altitudeElement.style.height = 5 + "px";
+              altitudeElement.style.height = 0 + "px";
             }
           }
 
