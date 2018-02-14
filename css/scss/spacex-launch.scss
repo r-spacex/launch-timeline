@@ -42,14 +42,40 @@ p{
       top: 34vh;
       right: 40px;
   }
+
+  &[landingsuccess][landingtype="ASDS"] #landingFalcon{
+      background-image: url('../../../images/landing/falcon.svg');
+      top: 34.5vh;
+      right: 32px;
+  }
+
+  &[landingsuccess][landingtype="RTLS"] #landingFalcon{
+      background-image: url('../../../images/landing/falcon.svg');
+      top: 36vh;
+      right: 32px;
+  }
   
  &:not([landingsuccess]) {
-    &[landingtype="Ocean"]{
+    &[landingtype="Ocean"], &[landingtype="ASDS"]{
       #landingFalcon{
         background-image: url('../../../images/landing/falcon.svg');
-          top: 32vh;
-          right: 40px;
-          transform: rotate(-10deg);
+        top: 31vh;
+        right: 40px;
+        transform: rotate(-10deg);
+
+        &:after{
+          background-image: url('../../../images/explosion-grey.svg');
+          background-repeat: no-repeat;
+          background-size: 25px 25px;
+          content: '';
+          display: block;
+          height: 25px;
+          left: 50%;
+          position: absolute;
+          top: 15px;
+          transform: translateX(-50%);
+          width: 25px;
+        }
       }
     }
   }
@@ -121,6 +147,10 @@ p{
       background-image: url('../../../images/satellite.svg');
   }
 
+  &[launchsuccess][payloadType="Satellite"][payloadid="Tesla Roadster"]:before{
+      background-image: url('../../../images/roadster.svg');
+  }
+
   &[launchsuccess][payloadType~="Dragon"]:before{
       background-image: url('../../../images/dragon-svg/dragon.svg');
       background-size: 20px 25px;
@@ -175,5 +205,9 @@ p{
 
   &[vehicle="falcon9FT"]:after{
     background: $falcon-9FT;
+  }
+
+  &[vehicle="falconheavyFT"]:after{
+    background: $falcon-heavy;
   }
 }
