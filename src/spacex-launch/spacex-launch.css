@@ -411,6 +411,9 @@ template {
   position: relative;
   text-align: center;
   width: 150px; }
+  :host[year='2006']::after {
+    content: "year";
+    display: block; }
 
 .altitude-line {
   border-bottom: 1px solid #3569a4;
@@ -562,3 +565,7 @@ p {
     background: #8c84a6; }
   #launchDatetime[vehicle="falconheavyFT"]:after {
     background: #a742f4; }
+
+#timeline-link {
+  position: absolute;
+  order: 5; }

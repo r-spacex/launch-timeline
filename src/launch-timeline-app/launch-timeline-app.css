@@ -535,6 +535,356 @@ header h2 {
   display: block;
   opacity: 1; }
 
+spacex-launch[year="2006"]::after {
+  bottom: 25px;
+  content: "2006";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2006"] ~ spacex-launch[year="2006"]::after {
+  content: ""; }
+
+spacex-launch[year="2006"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2006"] ~ spacex-launch[year="2006"]::before {
+  background: transparent; }
+
+spacex-launch[year="2007"]::after {
+  bottom: 25px;
+  content: "2007";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2007"] ~ spacex-launch[year="2007"]::after {
+  content: ""; }
+
+spacex-launch[year="2007"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2007"] ~ spacex-launch[year="2007"]::before {
+  background: transparent; }
+
+spacex-launch[year="2008"]::after {
+  bottom: 25px;
+  content: "2008";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2008"] ~ spacex-launch[year="2008"]::after {
+  content: ""; }
+
+spacex-launch[year="2008"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2008"] ~ spacex-launch[year="2008"]::before {
+  background: transparent; }
+
+spacex-launch[year="2009"]::after {
+  bottom: 25px;
+  content: "2009";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2009"] ~ spacex-launch[year="2009"]::after {
+  content: ""; }
+
+spacex-launch[year="2009"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2009"] ~ spacex-launch[year="2009"]::before {
+  background: transparent; }
+
+spacex-launch[year="2010"]::after {
+  bottom: 25px;
+  content: "2010";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2010"] ~ spacex-launch[year="2010"]::after {
+  content: ""; }
+
+spacex-launch[year="2010"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2010"] ~ spacex-launch[year="2010"]::before {
+  background: transparent; }
+
+spacex-launch[year="2011"]::after {
+  bottom: 25px;
+  content: "2011";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2011"] ~ spacex-launch[year="2011"]::after {
+  content: ""; }
+
+spacex-launch[year="2011"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2011"] ~ spacex-launch[year="2011"]::before {
+  background: transparent; }
+
+spacex-launch[year="2012"]::after {
+  bottom: 25px;
+  content: "2012";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2012"] ~ spacex-launch[year="2012"]::after {
+  content: ""; }
+
+spacex-launch[year="2012"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2012"] ~ spacex-launch[year="2012"]::before {
+  background: transparent; }
+
+spacex-launch[year="2013"]::after {
+  bottom: 25px;
+  content: "2013";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2013"] ~ spacex-launch[year="2013"]::after {
+  content: ""; }
+
+spacex-launch[year="2013"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2013"] ~ spacex-launch[year="2013"]::before {
+  background: transparent; }
+
+spacex-launch[year="2014"]::after {
+  bottom: 25px;
+  content: "2014";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2014"] ~ spacex-launch[year="2014"]::after {
+  content: ""; }
+
+spacex-launch[year="2014"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2014"] ~ spacex-launch[year="2014"]::before {
+  background: transparent; }
+
+spacex-launch[year="2015"]::after {
+  bottom: 25px;
+  content: "2015";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2015"] ~ spacex-launch[year="2015"]::after {
+  content: ""; }
+
+spacex-launch[year="2015"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2015"] ~ spacex-launch[year="2015"]::before {
+  background: transparent; }
+
+spacex-launch[year="2016"]::after {
+  bottom: 25px;
+  content: "2016";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2016"] ~ spacex-launch[year="2016"]::after {
+  content: ""; }
+
+spacex-launch[year="2016"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2016"] ~ spacex-launch[year="2016"]::before {
+  background: transparent; }
+
+spacex-launch[year="2017"]::after {
+  bottom: 25px;
+  content: "2017";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2017"] ~ spacex-launch[year="2017"]::after {
+  content: ""; }
+
+spacex-launch[year="2017"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2017"] ~ spacex-launch[year="2017"]::before {
+  background: transparent; }
+
+spacex-launch[year="2018"]::after {
+  bottom: 25px;
+  content: "2018";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2018"] ~ spacex-launch[year="2018"]::after {
+  content: ""; }
+
+spacex-launch[year="2018"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2018"] ~ spacex-launch[year="2018"]::before {
+  background: transparent; }
+
+spacex-launch[year="2019"]::after {
+  bottom: 25px;
+  content: "2019";
+  display: block;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%); }
+
+spacex-launch[year="2019"] ~ spacex-launch[year="2019"]::after {
+  content: ""; }
+
+spacex-launch[year="2019"]::before {
+  background: #3569a4;
+  content: "";
+  display: block;
+  bottom: 10px;
+  height: 15px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px; }
+
+spacex-launch[year="2019"] ~ spacex-launch[year="2019"]::before {
+  background: transparent; }
+
 #loader {
   background: #828282;
   /* Old browsers */
