@@ -59,17 +59,17 @@
         var visualOrbit;
         let altitudeElement = this.shadowRoot.querySelector('#altitude');
         let orbit = altitudeElement.getAttribute("orbit").toLowerCase();
-
         switch(orbit){
           case "leo":
           case "iss":
-          case "polar":
+          case "po":
           case "sso":
             visualOrbit = "leo";
             break;
           case "gto":
           case "es-l1":
-          case "heliocentric orbit":
+          case "hco":
+          case "heo":
             visualOrbit = "gto";
             break;
         }
@@ -88,7 +88,7 @@
           else{
             //Hardcoding failure altitude for now
             let payload = altitudeElement.getAttribute("payloadID");
-            console.log(payload);
+            // console.log(payload);
             
             if(payload == "FalconSAT-2"){
               altitudeElement.style.height = (altitudeHeight/7) + "px";
