@@ -48,11 +48,19 @@
       <h3>Landing</h3>
       <p>[[launchData.landing_type]] landing &mdash; [[launchData.landing_vehicle]]</p>
     </template>
+    <h3>Launch Site</h3>
+    <p title$="[[launchData.launch_site.site_name_long]]">[[launchData.launch_site.site_name]]</p>
     <h3>Links</h3>
     <ul>
-      <li><a href$="[[launchData.links.reddit_campaign]]">Reddit Campaign</a></li>
-      <li><a href$="[[launchData.links.reddit_launch]]">Reddit Launch</a></li>
-      <li><a href$="[[launchData.links.reddit_recovery]]">Reddit Recovery</a></li>
+      <template is="dom-if" if="[[launchData.links.reddit_campaign]]">
+        <li><a href$="[[launchData.links.reddit_campaign]]">Reddit Campaign</a></li>
+      </template>
+      <template is="dom-if" if="[[launchData.links.reddit_launch]]">
+        <li><a href$="[[launchData.links.reddit_launch]]">Reddit Launch</a></li>
+      </template>
+      <template is="dom-if" if="[[launchData.links.reddit_recovery]]">
+        <li><a href$="[[launchData.links.reddit_recovery]]">Reddit Recovery</a></li>
+      </template>
     </ul>
   </template>
   <script>

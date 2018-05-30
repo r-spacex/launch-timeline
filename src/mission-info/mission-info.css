@@ -142,11 +142,16 @@ template { display: none; }
 [hidden] { display: none; }
 
 :host { padding: 16px; color: #444; background-color: white; border-top: 1px solid #ddd; position: absolute; top: 50vh; left: 0; right: 0; bottom: 0; z-index: 20; overflow-y: auto; transform: translate(0, 50vh); will-change: transform; transition: transform 0.3s ease-in, top 0.3s ease-in; }
+
 @media (min-resolution: 1.5dppx) { :host { border-top-width: 0.75px; } }
+
 @media (min-resolution: 2dppx) { :host { border-top-width: 0.5px; } }
+
 @media (min-width: 820px) { :host { top: 0; left: auto; bottom: 0; right: 0; width: 320px; transition: transform 0.3s ease-in; transform: translate(355px, 0); border-left: 1px solid #ddd; }
   :host #maximizeButton { display: none; } }
+
 @media (min-width: 820px) and (min-resolution: 1.5dppx) { :host { border-left-width: 0.75px; } }
+
 @media (min-width: 820px) and (min-resolution: 2dppx) { :host { border-left-width: 0.5px; } }
 
 #maximizeButton { width: 24px; will-change: transform; transform: rotate(0deg); transition: transform 0.2s ease; }
@@ -156,9 +161,13 @@ template { display: none; }
 :host([maximized]) #maximizeButton { transform: rotate(180deg); }
 
 @media (max-width: 819px) { :host([visible][maximized]) { top: 0; } }
+
 .top-bar { display: flex; flex-direction: row; align-items: center; padding-bottom: 8px; border-bottom: 1px solid #ddd; }
+
 @media (min-resolution: 1.5dppx) { .top-bar { border-bottom-width: 0.75px; } }
+
 @media (min-resolution: 2dppx) { .top-bar { border-bottom-width: 0.5px; } }
+
 .top-bar h1 { font-weight: 600; margin: 0; flex-grow: 1; }
 
 h2 { font-weight: 600; color: #888; font-size: 18px; margin-top: 8px; }
