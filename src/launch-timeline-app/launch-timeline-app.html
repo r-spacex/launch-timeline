@@ -104,12 +104,6 @@
         let loader = this.shadowRoot.querySelector('#loader');
         let launches = this.shadowRoot.querySelector('.scroll-area').getElementsByTagName('spacex-launch');
         loader.classList.add('hide');
-        setTimeout(function(){
-          console.log(launches.length);
-          for(let i = 0; i < launches.length; i++){
-            console.log(launches[i].getAttribute('year'));
-          }
-        }, 10);
       }
 
       ready() {

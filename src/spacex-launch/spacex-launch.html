@@ -18,7 +18,7 @@
     </div>
     <div id="landing" landingType$="{{launchData.rocket.first_stage.cores.0.landing_type}}" landingSuccess$="{{launchData.rocket.first_stage.cores.0.land_success}}">
       <div id="landingPlatform"></div>
-      <div id="landingFalcon"></div>      
+      <div id="landingFalcon"></div>
     </div>
     <launch-vehicle vehicle-data="[[launchData.rocket]]"></launch-vehicle>
     <p id="mission">[[launchData.rocket.second_stage.payloads.0.payload_id]]</p>
@@ -89,7 +89,7 @@
             //Hardcoding failure altitude for now
             let payload = altitudeElement.getAttribute("payloadID");
             // console.log(payload);
-            
+
             if(payload == "FalconSAT-2"){
               altitudeElement.style.height = (altitudeHeight/7) + "px";
             }
@@ -107,7 +107,7 @@
             }
           }
 
-          altitudeElement.style.marginBottom = "-" + (vehicle.getBoundingClientRect().top - altitudeElement.getBoundingClientRect().bottom - 16) + "px";          
+          altitudeElement.style.marginBottom = "-" + (vehicle.getBoundingClientRect().top - altitudeElement.getBoundingClientRect().bottom - 16) + "px";
         }, 1000);
       }
 
