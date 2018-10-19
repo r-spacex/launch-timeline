@@ -78,36 +78,39 @@
         let targetAltitudeElement = this.shadowRoot.querySelector('#' + visualOrbit);
         let vehicle = this.shadowRoot.querySelector('launch-vehicle');
 
-        setTimeout(function(){
-          let altitudeOffset = targetAltitudeElement.getBoundingClientRect().top;
-          targetAltitudeElement.getBoundingClientRect().mar
-          let vehicleOffset = vehicle.getBoundingClientRect().top;
-          let altitudeHeight = vehicleOffset - altitudeOffset - 8;
-          if(altitudeElement.getAttribute("launchsuccess") != null)
-            altitudeElement.style.height = altitudeHeight + 5 + "px";
-          else{
-            //Hardcoding failure altitude for now
-            let payload = altitudeElement.getAttribute("payloadID");
-            // console.log(payload);
+        setTimeout(function() {
+          requestAnimationFrame(() => {
+            let altitudeOffset = targetAltitudeElement.getBoundingClientRect().top;
+            targetAltitudeElement.getBoundingClientRect().mar
+            let vehicleOffset = vehicle.getBoundingClientRect().top;
+            let altitudeHeight = vehicleOffset - altitudeOffset - 8;
+            if (altitudeElement.getAttribute("launchsuccess") != null) {
+              altitudeElement.style.height = altitudeHeight + 5 + "px";
+            }
+            else {
+              // Hardcoding failure altitude for now
+              let payload = altitudeElement.getAttribute("payloadID");
+              // console.log(payload);
 
-            if(payload == "FalconSAT-2"){
-              altitudeElement.style.height = (altitudeHeight/7) + "px";
+              if(payload == "FalconSAT-2"){
+                altitudeElement.style.height = (altitudeHeight/7) + "px";
+              }
+              else if(payload == "DemoSAT"){
+                altitudeElement.style.height = (6*altitudeHeight/7) + "px";
+              }
+              else if(payload == "Trailblazer"){
+                altitudeElement.style.height = (9*altitudeHeight/10) + "px";
+              }
+              else if(payload == "SpaceX CRS-7"){
+                altitudeElement.style.height = (4*altitudeHeight/7) + "px";
+              }
+              else if(payload == "Amos-6"){
+                altitudeElement.style.height = 0 + "px";
+              }
             }
-            else if(payload == "DemoSAT"){
-              altitudeElement.style.height = (6*altitudeHeight/7) + "px";
-            }
-            else if(payload == "Trailblazer"){
-              altitudeElement.style.height = (9*altitudeHeight/10) + "px";
-            }
-            else if(payload == "SpaceX CRS-7"){
-              altitudeElement.style.height = (4*altitudeHeight/7) + "px";
-            }
-            else if(payload == "Amos-6"){
-              altitudeElement.style.height = 0 + "px";
-            }
-          }
 
-          altitudeElement.style.marginBottom = "-" + (vehicle.getBoundingClientRect().top - altitudeElement.getBoundingClientRect().bottom - 16) + "px";
+            altitudeElement.style.marginBottom = "-" + (vehicle.getBoundingClientRect().top - altitudeElement.getBoundingClientRect().bottom - 16) + "px";
+          });
         }, 1000);
       }
 
